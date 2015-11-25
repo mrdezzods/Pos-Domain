@@ -1,58 +1,49 @@
 package domain;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
-import domain.product.Product;
+import domain.product.ShoppingCartProduct;
+
 
 public class ShoppingCart extends Observable {
 
 	private final String userId; // can be null
-	private Map<Product, Integer> products; // maps the product-id to the quantity
+	private final int id;
+	private List<ShoppingCartProduct> products;
 
-	public ShoppingCart(String userId) {
-		this.userId = userId;
-		products = new HashMap<>();
+	public ShoppingCart(int id, String userid) {
+		this.userId = userid;
+		this.id = id;
+		products = new ArrayList<>();
 	}
 
 	public String getUserId() {
 		return this.userId;
 	}
 
-	public void addProduct(Product product) {
-		addProduct(product, 1);
-	}
-
-	public void addProduct(Product product, int quantity) {
-		if (product == null)
-			throw new IllegalArgumentException("The product may not be null");
-
-		if (products.containsKey(product)) {
-			int old_value = products.get(product);
-			int new_value = old_value + quantity;
-			products.put(product,  new_value);
-		} else {
-			products.put(product, quantity);
-		}
-
-		setChanged();
-		notifyObservers();
+	public void addProduct(ShoppingCartProduct product) {
+		products.add(product);
 	}
 
 	public double getTotalPrice() {
 		double sum = 0.0;
-		for (Entry<Product, Integer> pair : products.entrySet()) {
-			sum += pair.getKey().getPrice() * pair.getValue();
+		for (ShoppingCartProduct product : this.products) {
+			sum += product.getTotal();
 		}
 		return sum;
 	}
 
-	public int getOrderAmount() {
-		int sum = 0;
-		for (int quantity : products.values())
-			sum += quantity;
-		return sum;
+	public int getTotalQty() {
+		int count = 0;
+		for (ShoppingCartProduct product : this.products) {
+			count += product.getQty();
+		}
+		return count;
+	}
+
+	public int getId() {
+		return this.id;
 	}
 }

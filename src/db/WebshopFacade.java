@@ -10,6 +10,7 @@ import domain.person.PersonService;
 import domain.person.Role;
 import domain.product.Product;
 import domain.product.ProductService;
+import domain.product.ShoppingCartProduct;
 
 public class WebshopFacade {
 	private final PersonService personService;
@@ -90,30 +91,30 @@ public class WebshopFacade {
 		return shoppingCartService.createCart(userId);
 	}
 
-	public ShoppingCart getCart(String userId) {
-		return shoppingCartService.getCart(userId);
+	public ShoppingCart getCart(int cartId) {
+		return shoppingCartService.getCart(cartId);
 	}
 
-	public void deleteCart(String userId) {
-		shoppingCartService.removeCart(userId);
+	public void deleteCart(int cartId) {
+		shoppingCartService.removeCart(cartId);
 	}
 
-	public double getTotalFromCart(String userId) {
-		ShoppingCart shoppingcart = shoppingCartService.getCart(userId);
+	public double getTotalFromCart(int cartId) {
+		ShoppingCart shoppingcart = shoppingCartService.getCart(cartId);
 		return shoppingcart.getTotalPrice();
 	}
 
-	public void addProductToCart(String userId, Product product) {
-		ShoppingCart shoppingcart = shoppingCartService.getCart(userId);
-		shoppingcart.addProduct(product);
-	}
-	
-	public void addProductToCart(String userId, Product product, int quantity) {
-		shoppingCartService.getCart(userId).addProduct(product, quantity);
+	public void addProductToCart(int cartId, Product product) {
+		addProductToCart(cartId, product, 1);
 	}
 
-	public Object getOrderAmount(String userId) {
-		return shoppingCartService.getCart(userId).getOrderAmount();
+	public void addProductToCart(int cartId, Product product, int quantity) {
+		ShoppingCartProduct prd = new ShoppingCartProduct(product, quantity);
+		shoppingCartService.getCart(cartId).addProduct(prd);
+	}
+
+	public int getTotalQty(int cartId) {
+		return shoppingCartService.getCart(cartId).getTotalQty();
 	}
 
 }
