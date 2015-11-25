@@ -9,6 +9,11 @@ import java.util.Map;
  */
 public class ShoppingCartService {
 	
+	private static int counter = 0;
+	private static int nextNumber() {
+		return counter++;
+	}
+	
 	private Map<String, ShoppingCart> carts; // maps userIds to carts
 
 	public ShoppingCartService() {

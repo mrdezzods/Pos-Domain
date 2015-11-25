@@ -32,8 +32,6 @@ public class ShoppingCart extends Observable {
 		if (products.containsKey(product)) {
 			int old_value = products.get(product);
 			int new_value = old_value + quantity;
-			System.out.println("old_value: " + old_value);
-			System.out.println("new_value: " + new_value);
 			products.put(product,  new_value);
 		} else {
 			products.put(product, quantity);
