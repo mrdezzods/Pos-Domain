@@ -17,7 +17,11 @@ public class Person {
 	private byte[] salt;
 	private Role role;
 
-	//Constructor for creating new users, salt is generated.
+	public Person() {
+
+	}
+
+	// Constructor for creating new users, salt is generated.
 	public Person(String userId, String password, String firstName, String lastName, Role role) {
 		setUserId(userId);
 		setPassword(password);
@@ -26,7 +30,7 @@ public class Person {
 		setRole(role);
 	}
 
-	//Constructor for creating existing users, salt is given.
+	// Constructor for creating existing users, salt is given.
 	public Person(String userId, String password, byte[] salt, String firstName, String lastName, Role role) {
 		setUserId(userId);
 		setHashedPassword(password);
@@ -41,7 +45,7 @@ public class Person {
 	}
 
 	public static boolean isValidFirstName(String firstName) {
-		if(firstName.isEmpty()){
+		if (firstName.isEmpty()) {
 			throw new IllegalArgumentException("No first name given");
 		}
 		return true;
@@ -56,24 +60,24 @@ public class Person {
 	}
 
 	public static boolean isValidLastName(String lastName) {
-		if(lastName.isEmpty()){
+		if (lastName.isEmpty()) {
 			throw new IllegalArgumentException("No last name given");
 		}
 		return true;
 	}
 
 	public void setLastName(String lastName) {
-			this.lastName = lastName;
-	}	
+		this.lastName = lastName;
+	}
 
 	public String getUserId() {
 		return userId;
 	}
-	
+
 	public Role getRole() {
 		return role;
 	}
-	
+
 	private void setRole(Role role) {
 		this.role = role;
 	}
@@ -93,8 +97,8 @@ public class Person {
 	}
 
 	public void setUserId(String userId) {
-			this.userId = userId;
-	}	
+		this.userId = userId;
+	}
 
 	public String getHashedPassword() {
 		return password;
@@ -105,7 +109,7 @@ public class Person {
 	}
 
 	public static boolean isValidPassword(String password) {
-		if(password.isEmpty()){
+		if (password.isEmpty()) {
 			throw new IllegalArgumentException("No password given");
 		}
 		return true;
@@ -123,19 +127,19 @@ public class Person {
 		this.salt = salt;
 	}
 
-	public void setPassword(String password)  {
+	public void setPassword(String password) {
 		SecureRandom random = new SecureRandom();
 		byte seed[] = random.generateSeed(20);
-		setSalt(seed);		
+		setSalt(seed);
 		setHashedPassword(sha1(password, seed));
 	}
 
-	private static String sha1(String string, byte[] seed) {		
+	private static String sha1(String string, byte[] seed) {
 		try {
 			MessageDigest crypt = MessageDigest.getInstance("SHA-1");
-			crypt.reset();			
+			crypt.reset();
 			crypt.update(seed);
-			crypt.update(string.getBytes("UTF-8"));		
+			crypt.update(string.getBytes("UTF-8"));
 			return new BigInteger(1, crypt.digest()).toString(16);
 		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
 			e.printStackTrace();

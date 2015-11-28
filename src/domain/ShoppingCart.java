@@ -6,7 +6,6 @@ import java.util.Observable;
 
 import domain.product.ShoppingCartProduct;
 
-
 public class ShoppingCart extends Observable {
 
 	private final String userId; // can be null
@@ -17,6 +16,7 @@ public class ShoppingCart extends Observable {
 		this.userId = userid;
 		this.id = id;
 		products = new ArrayList<>();
+
 	}
 
 	public String getUserId() {
@@ -25,6 +25,8 @@ public class ShoppingCart extends Observable {
 
 	public void addProduct(ShoppingCartProduct product) {
 		products.add(product);
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public double getTotalPrice() {
@@ -45,5 +47,9 @@ public class ShoppingCart extends Observable {
 
 	public int getId() {
 		return this.id;
+	}
+
+	public List<ShoppingCartProduct> getProducts() {
+		return this.products;
 	}
 }
