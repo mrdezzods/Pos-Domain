@@ -38,4 +38,12 @@ public class ShoppingCartService {
 	public ShoppingCart getCart(int cartId) {
 		return carts.get(cartId);
 	}
+
+	public ShoppingCart getCartFromUser(String userId) {
+		for (ShoppingCart cart : carts.values()) {
+			if (cart.getUserId().equals(userId))
+				return cart;
+		}
+		return null;
+	}
 }

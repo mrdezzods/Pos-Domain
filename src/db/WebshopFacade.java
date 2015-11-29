@@ -95,6 +95,10 @@ public class WebshopFacade {
 		return shoppingCartService.getCart(cartId);
 	}
 
+	public ShoppingCart getCartFromUser(String userId) {
+		return shoppingCartService.getCartFromUser(userId);
+	}
+
 	public void deleteCart(int cartId) {
 		shoppingCartService.removeCart(cartId);
 	}
@@ -113,8 +117,21 @@ public class WebshopFacade {
 		shoppingCartService.getCart(cartId).addProduct(prd);
 	}
 
+	public void addProductToCartFromUser(String userId, Product product,
+			int quantity) {
+		ShoppingCart cart = shoppingCartService.getCartFromUser(userId);
+		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
+		addProductToCart(cart.getId(), product, quantity);
+	}
+
 	public int getTotalQty(int cartId) {
 		return shoppingCartService.getCart(cartId).getTotalQty();
+	}
+
+	public int getTotalQtyFromUser(String userId) {
+		ShoppingCart cart = shoppingCartService.getCartFromUser(userId);
+		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
+		return getTotalQty(cart.getId());
 	}
 
 }
