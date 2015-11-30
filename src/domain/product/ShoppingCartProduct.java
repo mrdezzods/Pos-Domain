@@ -10,7 +10,7 @@ public class ShoppingCartProduct {
 		this.product = product;
 	}
 
-	private void setQty(int qty) {
+	public void setQty(int qty) {
 		if (qty <= 0) {
 			throw new IllegalArgumentException("Quantity should be greater than 0");
 		}

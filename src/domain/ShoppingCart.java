@@ -52,4 +52,18 @@ public class ShoppingCart extends Observable {
 	public List<ShoppingCartProduct> getProducts() {
 		return this.products;
 	}
+
+	public void alterProduct(int productIndex, int newQuantity) {
+		ShoppingCartProduct product = products.get(productIndex);
+		if (newQuantity == 0) {
+			products.remove(productIndex);
+		} else {
+			product.setQty(newQuantity);
+		}
+	}
+
+	public void reportChanges() {
+		setChanged();
+		notifyObservers();
+	}
 }
