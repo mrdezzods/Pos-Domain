@@ -1,7 +1,15 @@
 package domain.product;
 
 public class ShoppingCartProduct {
+
+	private static int counter = 0;
+
+	private static int nextNumber() {
+		return counter++;
+	}
+	
 	private Product product;
+	private final int id;
 
 	private void setProduct(Product product) {
 		if (product == null) {
@@ -26,10 +34,15 @@ public class ShoppingCartProduct {
 	}
 
 	private int qty;
+	
+	public int getId() {
+		return this.id;
+	}
 
 	public ShoppingCartProduct(Product product, int qty) {
 		this.setProduct(product);
 		this.setQty(qty);
+		this.id = nextNumber();
 	}
 
 	public double getTotal() {

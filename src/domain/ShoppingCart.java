@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+import domain.product.Product;
 import domain.product.ShoppingCartProduct;
 
 public class ShoppingCart extends Observable {
@@ -53,10 +54,34 @@ public class ShoppingCart extends Observable {
 		return this.products;
 	}
 
-	public void alterProduct(int productIndex, int newQuantity) {
-		ShoppingCartProduct product = products.get(productIndex);
+	/**
+	 * 
+	 * @param productPosition The position of the product in the list of products
+	 * @param newQuantity The new quantity it will be
+	 */
+	public void alterProduct(int productPosition, int newQuantity) {
+		ShoppingCartProduct product = products.get(productPosition);
 		if (newQuantity == 0) {
-			products.remove(productIndex);
+			products.remove(productPosition);
+		} else {
+			product.setQty(newQuantity);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param productIndex The index of the ShoppingCqrtProduct to delete
+	 * @param newQuantity
+	 */
+	public void alterProductWithIndex(int productIndex, int newQuantity) {
+		ShoppingCartProduct product = null;
+		for (ShoppingCartProduct p : products)
+			if (p.getId() == productIndex)
+				product = p;
+		if (product == null)
+			throw new IllegalArgumentException("No product with this ID exists");
+		if (newQuantity == 0) {
+			products.remove(product);
 		} else {
 			product.setQty(newQuantity);
 		}
@@ -65,5 +90,9 @@ public class ShoppingCart extends Observable {
 	public void reportChanges() {
 		setChanged();
 		notifyObservers();
+	}
+
+	public void alterProduct(Product product, int quantity) {
+		alterProduct(products.indexOf(product), quantity);
 	}
 }
