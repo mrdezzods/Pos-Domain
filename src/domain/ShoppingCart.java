@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+import domain.discount.Discount;
 import domain.product.Product;
 import domain.product.ShoppingCartProduct;
 
@@ -12,6 +13,7 @@ public class ShoppingCart extends Observable {
 	private final String userId; // can be null
 	private final int id;
 	private List<ShoppingCartProduct> products;
+	private Discount discount;
 
 	public ShoppingCart(int id, String userid) {
 		this.userId = userid;
@@ -30,6 +32,10 @@ public class ShoppingCart extends Observable {
 	}
 
 	public double getTotalPrice() {
+		if (this.discount != null) {
+			return this.discount.calcuate(this.getProducts());
+		}
+		
 		double sum = 0.0;
 		for (ShoppingCartProduct product : this.products) {
 			sum += product.getTotal();
@@ -55,8 +61,10 @@ public class ShoppingCart extends Observable {
 
 	/**
 	 * 
-	 * @param productPosition The position of the product in the list of products
-	 * @param newQuantity The new quantity it will be
+	 * @param productPosition
+	 *            The position of the product in the list of products
+	 * @param newQuantity
+	 *            The new quantity it will be
 	 */
 	public void alterProduct(int productPosition, int newQuantity) {
 		ShoppingCartProduct product = products.get(productPosition);
@@ -66,10 +74,11 @@ public class ShoppingCart extends Observable {
 			product.setQty(newQuantity);
 		}
 	}
-	
+
 	/**
 	 * 
-	 * @param productId The id of the ShoppingCqrtProduct to delete
+	 * @param productId
+	 *            The id of the ShoppingCqrtProduct to delete
 	 * @param newQuantity
 	 */
 	public void alterProductWithId(int productId, int newQuantity) {
@@ -93,5 +102,10 @@ public class ShoppingCart extends Observable {
 
 	public void alterProduct(Product product, int quantity) {
 		alterProduct(products.indexOf(product), quantity);
+	}
+
+	public void setDiscount(Discount discount) {
+		this.discount = discount;
+		reportChanges();
 	}
 }

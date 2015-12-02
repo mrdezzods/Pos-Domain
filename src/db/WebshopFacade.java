@@ -5,6 +5,8 @@ import java.util.Properties;
 
 import domain.ShoppingCart;
 import domain.ShoppingCartService;
+import domain.discount.Discount;
+import domain.discount.DiscountService;
 import domain.person.Person;
 import domain.person.PersonService;
 import domain.person.Role;
@@ -16,11 +18,14 @@ public class WebshopFacade {
 	private final PersonService personService;
 	private final ProductService productService;
 	private final ShoppingCartService shoppingCartService;
+	private final DiscountService discountService;
 
 	public WebshopFacade(Properties properties) {
 		personService = new PersonService(DBtypes.LOCALDB, properties);
 		productService = new ProductService(DBtypes.LOCALDB, properties);
 		shoppingCartService = new ShoppingCartService();
+		
+		discountService = new DiscountService();
 		
 	}
 
@@ -135,10 +140,17 @@ public class WebshopFacade {
 		return getTotalQty(cart.getId());
 	}
 
+
+	// discount things
 	public void addDiscountToCart(int cartId, String code) {
 		ShoppingCart cart = getCart(cartId);
-		Discount discount = getDiscount(code);
+		
+		Discount discount =getDiscount(code);
 		cart.setDiscount(discount);
+	}
+
+	private Discount getDiscount(String code){
+		return discountService.getDiscount(code);
 	}
 
 }
