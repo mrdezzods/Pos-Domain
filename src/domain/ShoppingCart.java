@@ -70,13 +70,13 @@ public class ShoppingCart extends Observable {
 	
 	/**
 	 * 
-	 * @param productIndex The index of the ShoppingCqrtProduct to delete
+	 * @param productId The id of the ShoppingCqrtProduct to delete
 	 * @param newQuantity
 	 */
-	public void alterProductWithIndex(int productIndex, int newQuantity) {
+	public void alterProductWithId(int productId, int newQuantity) {
 		ShoppingCartProduct product = null;
 		for (ShoppingCartProduct p : products)
-			if (p.getId() == productIndex)
+			if (p.getId() == productId)
 				product = p;
 		if (product == null)
 			throw new IllegalArgumentException("No product with this ID exists");
