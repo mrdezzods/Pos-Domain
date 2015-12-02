@@ -26,8 +26,7 @@ public class ShoppingCart extends Observable {
 
 	public void addProduct(ShoppingCartProduct product) {
 		products.add(product);
-		this.setChanged();
-		this.notifyObservers();
+		reportChanges();
 	}
 
 	public double getTotalPrice() {

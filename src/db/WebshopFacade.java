@@ -21,6 +21,7 @@ public class WebshopFacade {
 		personService = new PersonService(DBtypes.LOCALDB, properties);
 		productService = new ProductService(DBtypes.LOCALDB, properties);
 		shoppingCartService = new ShoppingCartService();
+		
 	}
 
 	// product things
@@ -132,6 +133,12 @@ public class WebshopFacade {
 		ShoppingCart cart = shoppingCartService.getCartFromUser(userId);
 		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
 		return getTotalQty(cart.getId());
+	}
+
+	public void addDiscountToCart(int cartId, String code) {
+		ShoppingCart cart = getCart(cartId);
+		Discount discount = getDiscount(code);
+		cart.setDiscount(discount);
 	}
 
 }
