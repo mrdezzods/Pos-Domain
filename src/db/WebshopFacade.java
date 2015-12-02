@@ -153,4 +153,8 @@ public class WebshopFacade {
 		return discountService.getDiscount(code);
 	}
 
+	public String getDiscountCode(int cartId) {
+		return getCart(cartId).getDiscountCode();
+	}
+
 }

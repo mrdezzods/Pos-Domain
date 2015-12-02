@@ -108,4 +108,9 @@ public class ShoppingCart extends Observable {
 		this.discount = discount;
 		reportChanges();
 	}
+
+	public String getDiscountCode() {
+		if (discount == null) return "";
+		return discount.getCode();
+	}
 }

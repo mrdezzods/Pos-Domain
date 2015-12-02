@@ -21,7 +21,6 @@ public class DiscountRepository {
 	}
 
 	public Discount getDiscount(String code) {
-		System.out.println(code);
 		for (Discount d : discounts) {
 			if (d.getCode().equals(code)) {
 				return d;
