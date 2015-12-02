@@ -28,5 +28,9 @@ public abstract class Discount {
 		}
 		this.amount = amount;
 	}
+	
+	public String getCode(){
+		return this.code;
+	}
 
 }
