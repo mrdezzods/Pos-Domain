@@ -1,10 +1,9 @@
-package db;
+package domain;
 
 import java.util.List;
 import java.util.Properties;
 
-import domain.ShoppingCart;
-import domain.ShoppingCartService;
+import db.DBtypes;
 import domain.discount.Discount;
 import domain.discount.DiscountService;
 import domain.person.Person;
@@ -24,7 +23,6 @@ public class WebshopFacade {
 		personService = new PersonService(DBtypes.LOCALDB, properties);
 		productService = new ProductService(DBtypes.LOCALDB, properties);
 		shoppingCartService = new ShoppingCartService();
-		
 		discountService = new DiscountService();
 		
 	}
@@ -87,8 +85,7 @@ public class WebshopFacade {
 	}
 
 	public Role getRole(String userId) {
-		Person person = personService.getPerson(userId);
-		return person == null ? null : person.getRole();
+		return personService.getRole(userId);
 	}
 
 	// cart things
@@ -110,8 +107,7 @@ public class WebshopFacade {
 	}
 
 	public double getTotalFromCart(int cartId) {
-		ShoppingCart shoppingcart = shoppingCartService.getCart(cartId);
-		return shoppingcart.getTotalPrice();
+		return shoppingCartService.getTotalPrice(cartId);
 	}
 
 	public void addProductToCart(int cartId, Product product) {
@@ -120,33 +116,27 @@ public class WebshopFacade {
 
 	public void addProductToCart(int cartId, Product product, int quantity) {
 		ShoppingCartProduct prd = new ShoppingCartProduct(product, quantity);
-		shoppingCartService.getCart(cartId).addProduct(prd);
+		shoppingCartService.addProduct(cartId, prd);
 	}
 
 	public void addProductToCartFromUser(String userId, Product product,
 			int quantity) {
-		ShoppingCart cart = shoppingCartService.getCartFromUser(userId);
-		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
-		addProductToCart(cart.getId(), product, quantity);
+		ShoppingCartProduct prd = new ShoppingCartProduct(product, quantity);
+		shoppingCartService.addProductToCartFromUser(userId, prd);
 	}
 
 	public int getTotalQty(int cartId) {
-		return shoppingCartService.getCart(cartId).getTotalQty();
+		return shoppingCartService.getTotalQty(cartId);
 	}
 
 	public int getTotalQtyFromUser(String userId) {
-		ShoppingCart cart = shoppingCartService.getCartFromUser(userId);
-		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
-		return getTotalQty(cart.getId());
+		return shoppingCartService.getTotalQtyFromUser(userId);
 	}
 
 
 	// discount things
 	public void addDiscountToCart(int cartId, String code) {
-		ShoppingCart cart = getCart(cartId);
-		
-		Discount discount =getDiscount(code);
-		cart.setDiscount(discount);
+		shoppingCartService.setDiscount(cartId, getDiscount(code));
 	}
 
 	private Discount getDiscount(String code){
@@ -154,7 +144,7 @@ public class WebshopFacade {
 	}
 
 	public String getDiscountCode(int cartId) {
-		return getCart(cartId).getDiscountCode();
+		return shoppingCartService.getDiscountCode(cartId);
 	}
 
 }
