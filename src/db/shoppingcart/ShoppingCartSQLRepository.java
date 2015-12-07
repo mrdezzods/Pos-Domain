@@ -1,4 +1,4 @@
-package db.product;
+package db.shoppingcart;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,25 +11,35 @@ import java.util.Properties;
 
 import db.SQLrepository;
 import domain.DbException;
-import domain.product.Product;
+import domain.ShoppingCart;
+import domain.discount.DiscountService;
 
-public class ProductSQLRepository extends SQLrepository implements
-		ProductDbRepository {
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
+public class ShoppingCartSQLRepository extends SQLrepository implements
+		ShoppingCartDbRepository {
 
-	private static final String TABLE_NAME = "r0376333_r0296118.product";
-	private static final String NAME_FIELD = "name";
-	private static final String DESCRIPTION_FIELD = "description";
-	private static final String PRICE_FIELD = "price";
+	private static final String TABLE_NAME = "r0376333_r0296118.shoppingcart";
 	private static final String ID_FIELD = "id";
+	private static final String EMAIL_FIELD = "email";
+	private static final String DISCOUNTCODE_FIELD = "discountcode";
 
-	public ProductSQLRepository(Properties properties) {
+	private final DiscountService discountService;
+
+	public ShoppingCartSQLRepository(Properties properties,
+			DiscountService discountService) {
 		super(properties);
+		this.discountService = discountService;
 	}
 
-	public Product get(int id) {
+	@Override
+	public ShoppingCart get(int id) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		Product product = null;
+		ShoppingCart shoppingCart = null;
 		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_FIELD
 				+ " = ?";
 		try {
@@ -37,10 +47,10 @@ public class ProductSQLRepository extends SQLrepository implements
 			statement.setInt(1, id);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
-				String description = result.getString(DESCRIPTION_FIELD);
-				Double price = result.getDouble(PRICE_FIELD);
-				String name = result.getString(NAME_FIELD);
-				product = new Product(id, name, description, price);
+				String userid = result.getString(EMAIL_FIELD);
+				String discountcode = result.getString(DISCOUNTCODE_FIELD);
+				shoppingCart = new ShoppingCart(id, userid,
+						discountService.getDiscount(discountcode));
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -52,13 +62,14 @@ public class ProductSQLRepository extends SQLrepository implements
 				throw new DbException(e.getMessage(), e);
 			}
 		}
-		return product;
+		return shoppingCart;
 	}
 
-	public List<Product> getAll() {
+	@Override
+	public List<ShoppingCart> getAll() {
 		Connection connection = createConnection();
 		Statement statement = null;
-		List<Product> list = null;
+		List<ShoppingCart> list = null;
 		try {
 			statement = connection.createStatement();
 			ResultSet result = statement.executeQuery("SELECT * FROM "
@@ -66,10 +77,10 @@ public class ProductSQLRepository extends SQLrepository implements
 			list = new ArrayList<>();
 			while (result.next()) {
 				int id = result.getInt(ID_FIELD);
-				String name = result.getString(NAME_FIELD);
-				String description = result.getString(DESCRIPTION_FIELD);
-				Double price = result.getDouble(PRICE_FIELD);
-				list.add(new Product(id, name, description, price));
+				String userid = result.getString(EMAIL_FIELD);
+				String discountcode = result.getString(DISCOUNTCODE_FIELD);
+				list.add(new ShoppingCart(id, userid, discountService
+						.getDiscount(discountcode)));
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -84,18 +95,18 @@ public class ProductSQLRepository extends SQLrepository implements
 		return list;
 	}
 
-	public void add(Product product) {
+	@Override
+	public void add(ShoppingCart cart) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
 		String sql = "INSERT INTO " + TABLE_NAME + " (" + ID_FIELD + ", "
-				+ NAME_FIELD + ", " + DESCRIPTION_FIELD + ", " + PRICE_FIELD
+				+ EMAIL_FIELD + ", " + DISCOUNTCODE_FIELD
 				+ ") VALUES (?, ?, ?, ?)";
 		try {
 			statement = connection.prepareStatement(sql);
-			statement.setInt(1, product.getId());
-			statement.setString(2, product.getName());
-			statement.setString(3, product.getDescription());
-			statement.setDouble(4, product.getPrice());
+			statement.setInt(1, cart.getId());
+			statement.setString(2, cart.getUserId());
+			statement.setString(3, cart.getDiscountCode());
 			statement.execute();
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -109,18 +120,17 @@ public class ProductSQLRepository extends SQLrepository implements
 		}
 	}
 
-	public void update(Product product) {
+	@Override
+	public void update(ShoppingCart cart) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "UPDATE " + TABLE_NAME + " SET " + NAME_FIELD + " = ?, "
-				+ DESCRIPTION_FIELD + " = ?, " + PRICE_FIELD + " = ? WHERE "
-				+ ID_FIELD + " = ?";
+		String sql = "UPDATE " + TABLE_NAME + " SET " + EMAIL_FIELD + " = ?, "
+				+ DISCOUNTCODE_FIELD + " = ? WHERE " + ID_FIELD + " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
-			statement.setString(1, product.getName());
-			statement.setString(2, product.getDescription());
-			statement.setDouble(3, product.getPrice());
-			statement.setInt(4, product.getId());
+			statement.setString(1, cart.getUserId());
+			statement.setString(2, cart.getDiscountCode());
+			statement.setInt(3, cart.getId());
 			statement.execute();
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -134,6 +144,7 @@ public class ProductSQLRepository extends SQLrepository implements
 		}
 	}
 
+	@Override
 	public void delete(int id) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
@@ -154,4 +165,30 @@ public class ProductSQLRepository extends SQLrepository implements
 			}
 		}
 	}
+
+	@Override
+	public int getMaxId() {
+		Connection connection = createConnection();
+		PreparedStatement statement = null;
+		int max = 0;
+		String sql = "SELECT max(" + ID_FIELD + ") FROM " + TABLE_NAME;
+		try {
+			statement = connection.prepareStatement(sql);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				max = result.getInt(0);
+			}
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage(), e);
+		} finally {
+			try {
+				statement.close();
+				connection.close();
+			} catch (SQLException e) {
+				throw new DbException(e.getMessage(), e);
+			}
+		}
+		return max;
+	}
+
 }

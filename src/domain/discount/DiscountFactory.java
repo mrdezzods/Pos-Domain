@@ -1,5 +1,10 @@
 package domain.discount;
 
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
 public class DiscountFactory {
 
 	public Discount createDiscount(DiscountType type, String code,

@@ -19,7 +19,13 @@ public class ShoppingCart extends Observable {
 		this.userId = userid;
 		this.id = id;
 		products = new ArrayList<>();
+	}
 
+	public ShoppingCart(int id, String userid, Discount discount) {
+		this.userId = userid;
+		this.id = id;
+		products = new ArrayList<>();
+		setDiscount(discount);
 	}
 
 	public String getUserId() {

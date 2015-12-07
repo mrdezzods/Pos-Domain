@@ -4,6 +4,11 @@ import java.util.Properties;
 
 import db.DBtypes;
 
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
 public class DiscountDbFactory {
 	private static DiscountDbFactory factory = new DiscountDbFactory();
 

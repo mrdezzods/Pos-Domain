@@ -4,6 +4,11 @@ import java.util.List;
 
 import domain.discount.Discount;
 
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
 public interface DiscountDbRepository {
 	Discount get(String code);
 	List<Discount> getAll();

@@ -15,6 +15,11 @@ import domain.discount.Discount;
 import domain.discount.DiscountFactory;
 import domain.discount.DiscountType;
 
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
 public class DiscountSQLRepository extends SQLrepository implements
 		DiscountDbRepository {
 

@@ -1,10 +1,12 @@
 package domain;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Properties;
 
+import db.DBtypes;
+import db.shoppingcart.ShoppingCartDbFactory;
+import db.shoppingcart.ShoppingCartDbRepository;
 import domain.discount.Discount;
-import domain.product.Product;
+import domain.discount.DiscountService;
 import domain.product.ShoppingCartProduct;
 
 /**
@@ -19,32 +21,30 @@ public class ShoppingCartService {
 		return counter++;
 	}
 
-	private Map<Integer, ShoppingCart> carts; // maps userIds to carts
+	private ShoppingCartDbRepository repo;
 
-	public ShoppingCartService() {
-		carts = new HashMap<>();
+	public ShoppingCartService(DBtypes type, Properties properties, DiscountService discountService) {
+		ShoppingCartDbFactory factory = new ShoppingCartDbFactory(discountService);
+		repo = factory.createShoppingCartDb(type, properties);
+		counter = repo.getMaxId() + 1;
 	}
 
 	public ShoppingCart createCart(String userId) {
 		ShoppingCart cart = new ShoppingCart(nextNumber(), userId);
-		int cartId = cart.getId();
-
-		carts.put(cartId, cart);
-
+		repo.add(cart);
 		return cart;
 	}
 
 	public void removeCart(int cartId) {
-
-		carts.remove(cartId);
+		repo.delete(cartId);
 	}
 
 	public ShoppingCart getCart(int cartId) {
-		return carts.get(cartId);
+		return repo.get(cartId);
 	}
 
 	public ShoppingCart getCartFromUser(String userId) {
-		for (ShoppingCart cart : carts.values()) {
+		for (ShoppingCart cart : repo.getAll()) {
 			if (cart.getUserId().equals(userId))
 				return cart;
 		}
@@ -53,43 +53,55 @@ public class ShoppingCartService {
 
 	public double getTotalPrice(int cartId) {
 		ShoppingCart cart = getCart(cartId);
-		if (cart == null) throw new IllegalArgumentException("A cart with this ID doesn't exist");
+		if (cart == null)
+			throw new IllegalArgumentException(
+					"A cart with this ID doesn't exist");
 		return cart.getTotalPrice();
 	}
 
 	public void addProduct(int cartId, ShoppingCartProduct prd) {
 		ShoppingCart cart = getCart(cartId);
-		if (cart == null) throw new IllegalArgumentException("A cart with this ID doesn't exist");
+		if (cart == null)
+			throw new IllegalArgumentException(
+					"A cart with this ID doesn't exist");
 		cart.addProduct(prd);
 	}
 
 	public void addProductToCartFromUser(String userId, ShoppingCartProduct prd) {
 		ShoppingCart cart = getCartFromUser(userId);
-		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
+		if (cart == null)
+			throw new IllegalArgumentException("This user doesn't have a cart");
 		cart.addProduct(prd);
 	}
 
 	public int getTotalQty(int cartId) {
 		ShoppingCart cart = getCart(cartId);
-		if (cart == null) throw new IllegalArgumentException("A cart with this ID doesn't exist");
+		if (cart == null)
+			throw new IllegalArgumentException(
+					"A cart with this ID doesn't exist");
 		return cart.getTotalQty();
 	}
 
 	public int getTotalQtyFromUser(String userId) {
 		ShoppingCart cart = getCartFromUser(userId);
-		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
+		if (cart == null)
+			throw new IllegalArgumentException("This user doesn't have a cart");
 		return cart.getTotalQty();
 	}
 
 	public void setDiscount(int cartId, Discount discount) {
 		ShoppingCart cart = getCart(cartId);
-		if (cart == null) throw new IllegalArgumentException("A cart with this ID doesn't exist");
+		if (cart == null)
+			throw new IllegalArgumentException(
+					"A cart with this ID doesn't exist");
 		cart.setDiscount(discount);
 	}
 
 	public String getDiscountCode(int cartId) {
 		ShoppingCart cart = getCart(cartId);
-		if (cart == null) throw new IllegalArgumentException("A cart with this ID doesn't exist");
+		if (cart == null)
+			throw new IllegalArgumentException(
+					"A cart with this ID doesn't exist");
 		return cart.getDiscountCode();
 	}
 }
