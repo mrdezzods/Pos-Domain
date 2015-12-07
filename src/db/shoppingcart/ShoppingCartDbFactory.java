@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import db.DBtypes;
 import domain.discount.DiscountService;
+import domain.shoppingcartproduct.ShoppingCartProductService;
 
 /**
  * 
@@ -12,9 +13,11 @@ import domain.discount.DiscountService;
  */
 public class ShoppingCartDbFactory {
 	private final DiscountService discountService;
+	private final ShoppingCartProductService shoppingCartProductService;
 	
-	public ShoppingCartDbFactory(DiscountService discountService) {
+	public ShoppingCartDbFactory(DiscountService discountService, ShoppingCartProductService shoppingCartProductService) {
 		this.discountService = discountService;
+		this.shoppingCartProductService = shoppingCartProductService;
 	}
 
 	public ShoppingCartDbRepository createShoppingCartDb(DBtypes type,
@@ -22,7 +25,7 @@ public class ShoppingCartDbFactory {
 		ShoppingCartDbRepository db = null;
 		switch (type) {
 		case SQLDB:
-			db = new ShoppingCartSQLRepository(properties, discountService);
+			db = new ShoppingCartSQLRepository(properties, discountService, shoppingCartProductService);
 			break;
 		case LOCALDB:
 			db = new ShoppingCartLocalRepository();

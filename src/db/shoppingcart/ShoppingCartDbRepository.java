@@ -2,7 +2,7 @@ package db.shoppingcart;
 
 import java.util.List;
 
-import domain.ShoppingCart;
+import domain.shoppingcart.ShoppingCart;
 
 /**
  * 

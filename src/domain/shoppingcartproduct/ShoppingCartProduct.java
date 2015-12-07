@@ -1,4 +1,6 @@
-package domain.product;
+package domain.shoppingcartproduct;
+
+import domain.product.Product;
 
 public class ShoppingCartProduct {
 
@@ -38,7 +40,7 @@ public class ShoppingCartProduct {
 		return this.id;
 	}
 
-	public ShoppingCartProduct(Product product, int qty) {
+	public ShoppingCartProduct(int id, Product product, int qty) {
 		this.setProduct(product);
 		this.setQty(qty);
 		this.id = nextNumber();

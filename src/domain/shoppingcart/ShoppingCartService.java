@@ -1,4 +1,4 @@
-package domain;
+package domain.shoppingcart;
 
 import java.util.Properties;
 
@@ -7,7 +7,9 @@ import db.shoppingcart.ShoppingCartDbFactory;
 import db.shoppingcart.ShoppingCartDbRepository;
 import domain.discount.Discount;
 import domain.discount.DiscountService;
-import domain.product.ShoppingCartProduct;
+import domain.product.Product;
+import domain.shoppingcartproduct.ShoppingCartProduct;
+import domain.shoppingcartproduct.ShoppingCartProductService;
 
 /**
  * Manages shopping carts that belong to actual people. Anonymous carts are
@@ -21,16 +23,20 @@ public class ShoppingCartService {
 		return counter++;
 	}
 
-	private ShoppingCartDbRepository repo;
+	private final ShoppingCartDbRepository repo;
+	private final ShoppingCartProductService shoppingCartProductService;
 
-	public ShoppingCartService(DBtypes type, Properties properties, DiscountService discountService) {
-		ShoppingCartDbFactory factory = new ShoppingCartDbFactory(discountService);
+	public ShoppingCartService(DBtypes type, Properties properties,
+			DiscountService discountService,
+			ShoppingCartProductService shoppingCartProductService) {
+		ShoppingCartDbFactory factory = new ShoppingCartDbFactory(discountService, shoppingCartProductService);
 		repo = factory.createShoppingCartDb(type, properties);
 		counter = repo.getMaxId() + 1;
+		this.shoppingCartProductService = shoppingCartProductService;
 	}
 
 	public ShoppingCart createCart(String userId) {
-		ShoppingCart cart = new ShoppingCart(nextNumber(), userId);
+		ShoppingCart cart = new ShoppingCart(nextNumber(), userId, shoppingCartProductService);
 		repo.add(cart);
 		return cart;
 	}
@@ -59,19 +65,19 @@ public class ShoppingCartService {
 		return cart.getTotalPrice();
 	}
 
-	public void addProduct(int cartId, ShoppingCartProduct prd) {
+	public void addProduct(int cartId, Product product, int quantity) {
 		ShoppingCart cart = getCart(cartId);
 		if (cart == null)
 			throw new IllegalArgumentException(
 					"A cart with this ID doesn't exist");
-		cart.addProduct(prd);
+		cart.addProduct(product, quantity);
 	}
 
-	public void addProductToCartFromUser(String userId, ShoppingCartProduct prd) {
+	public void addProductToCartFromUser(String userId, Product product, int quantity) {
 		ShoppingCart cart = getCartFromUser(userId);
 		if (cart == null)
 			throw new IllegalArgumentException("This user doesn't have a cart");
-		cart.addProduct(prd);
+		cart.addProduct(product, quantity);
 	}
 
 	public int getTotalQty(int cartId) {

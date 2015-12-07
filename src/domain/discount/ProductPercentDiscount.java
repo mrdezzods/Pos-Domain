@@ -2,7 +2,7 @@ package domain.discount;
 
 import java.util.List;
 
-import domain.product.ShoppingCartProduct;
+import domain.shoppingcartproduct.ShoppingCartProduct;
 
 public class ProductPercentDiscount extends Discount {
 	private int productId;

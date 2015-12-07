@@ -11,8 +11,9 @@ import java.util.Properties;
 
 import db.SQLrepository;
 import domain.DbException;
-import domain.ShoppingCart;
 import domain.discount.DiscountService;
+import domain.shoppingcart.ShoppingCart;
+import domain.shoppingcartproduct.ShoppingCartProductService;
 
 /**
  * 
@@ -28,11 +29,13 @@ public class ShoppingCartSQLRepository extends SQLrepository implements
 	private static final String DISCOUNTCODE_FIELD = "discountcode";
 
 	private final DiscountService discountService;
+	private final ShoppingCartProductService shoppingCartProductService;
 
 	public ShoppingCartSQLRepository(Properties properties,
-			DiscountService discountService) {
+			DiscountService discountService, ShoppingCartProductService shoppingCartProductService) {
 		super(properties);
 		this.discountService = discountService;
+		this.shoppingCartProductService = shoppingCartProductService;
 	}
 
 	@Override
@@ -50,7 +53,7 @@ public class ShoppingCartSQLRepository extends SQLrepository implements
 				String userid = result.getString(EMAIL_FIELD);
 				String discountcode = result.getString(DISCOUNTCODE_FIELD);
 				shoppingCart = new ShoppingCart(id, userid,
-						discountService.getDiscount(discountcode));
+						discountService.getDiscount(discountcode), shoppingCartProductService);
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -80,7 +83,7 @@ public class ShoppingCartSQLRepository extends SQLrepository implements
 				String userid = result.getString(EMAIL_FIELD);
 				String discountcode = result.getString(DISCOUNTCODE_FIELD);
 				list.add(new ShoppingCart(id, userid, discountService
-						.getDiscount(discountcode)));
+						.getDiscount(discountcode), shoppingCartProductService));
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);

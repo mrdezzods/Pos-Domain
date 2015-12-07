@@ -11,19 +11,23 @@ import domain.person.PersonService;
 import domain.person.Role;
 import domain.product.Product;
 import domain.product.ProductService;
-import domain.product.ShoppingCartProduct;
+import domain.shoppingcart.ShoppingCart;
+import domain.shoppingcart.ShoppingCartService;
+import domain.shoppingcartproduct.ShoppingCartProductService;
 
 public class WebshopFacade {
 	private final PersonService personService;
 	private final ProductService productService;
 	private final ShoppingCartService shoppingCartService;
 	private final DiscountService discountService;
+	private final ShoppingCartProductService shoppingCartProductService;
 
 	public WebshopFacade(Properties properties) {
 		personService = new PersonService(DBtypes.LOCALDB, properties);
 		productService = new ProductService(DBtypes.LOCALDB, properties);
 		discountService = new DiscountService(DBtypes.LOCALDB, properties);
-		shoppingCartService = new ShoppingCartService(DBtypes.LOCALDB, properties, discountService);
+		shoppingCartProductService = new ShoppingCartProductService(DBtypes.LOCALDB, properties);
+		shoppingCartService = new ShoppingCartService(DBtypes.LOCALDB, properties, discountService, shoppingCartProductService);
 	}
 
 	// product things
@@ -114,14 +118,12 @@ public class WebshopFacade {
 	}
 
 	public void addProductToCart(int cartId, Product product, int quantity) {
-		ShoppingCartProduct prd = new ShoppingCartProduct(product, quantity);
-		shoppingCartService.addProduct(cartId, prd);
+		shoppingCartService.addProduct(cartId, product, quantity);
 	}
 
 	public void addProductToCartFromUser(String userId, Product product,
 			int quantity) {
-		ShoppingCartProduct prd = new ShoppingCartProduct(product, quantity);
-		shoppingCartService.addProductToCartFromUser(userId, prd);
+		shoppingCartService.addProductToCartFromUser(userId, product, quantity);
 	}
 
 	public int getTotalQty(int cartId) {
