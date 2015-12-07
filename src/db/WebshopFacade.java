@@ -24,9 +24,9 @@ public class WebshopFacade {
 		personService = new PersonService(DBtypes.LOCALDB, properties);
 		productService = new ProductService(DBtypes.LOCALDB, properties);
 		shoppingCartService = new ShoppingCartService();
-		
+
 		discountService = new DiscountService();
-		
+
 	}
 
 	// product things
@@ -101,6 +101,14 @@ public class WebshopFacade {
 		return shoppingCartService.getCart(cartId);
 	}
 
+	public String getAppliedDiscountCode(int cartId) {
+		Discount discount = shoppingCartService.getCart(cartId).getDiscount();
+		if (discount == null) {
+			return null;
+		}
+		return discount.getCode();
+	}
+
 	public ShoppingCart getCartFromUser(String userId) {
 		return shoppingCartService.getCartFromUser(userId);
 	}
@@ -123,10 +131,10 @@ public class WebshopFacade {
 		shoppingCartService.getCart(cartId).addProduct(prd);
 	}
 
-	public void addProductToCartFromUser(String userId, Product product,
-			int quantity) {
+	public void addProductToCartFromUser(String userId, Product product, int quantity) {
 		ShoppingCart cart = shoppingCartService.getCartFromUser(userId);
-		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
+		if (cart == null)
+			throw new IllegalArgumentException("This user doesn't have a cart");
 		addProductToCart(cart.getId(), product, quantity);
 	}
 
@@ -136,20 +144,20 @@ public class WebshopFacade {
 
 	public int getTotalQtyFromUser(String userId) {
 		ShoppingCart cart = shoppingCartService.getCartFromUser(userId);
-		if (cart == null) throw new IllegalArgumentException("This user doesn't have a cart");
+		if (cart == null)
+			throw new IllegalArgumentException("This user doesn't have a cart");
 		return getTotalQty(cart.getId());
 	}
-
 
 	// discount things
 	public void addDiscountToCart(int cartId, String code) {
 		ShoppingCart cart = getCart(cartId);
-		
-		Discount discount =getDiscount(code);
+
+		Discount discount = getDiscount(code);
 		cart.setDiscount(discount);
 	}
 
-	private Discount getDiscount(String code){
+	private Discount getDiscount(String code) {
 		return discountService.getDiscount(code);
 	}
 

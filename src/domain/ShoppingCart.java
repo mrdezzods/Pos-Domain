@@ -108,4 +108,9 @@ public class ShoppingCart extends Observable {
 		this.discount = discount;
 		reportChanges();
 	}
+	
+	public Discount getDiscount(){
+		return this.discount;
+	}
+	
 }
