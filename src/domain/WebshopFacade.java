@@ -23,7 +23,7 @@ public class WebshopFacade {
 		personService = new PersonService(DBtypes.LOCALDB, properties);
 		productService = new ProductService(DBtypes.LOCALDB, properties);
 		shoppingCartService = new ShoppingCartService();
-		discountService = new DiscountService();
+		discountService = new DiscountService(DBtypes.LOCALDB, properties);
 		
 	}
 

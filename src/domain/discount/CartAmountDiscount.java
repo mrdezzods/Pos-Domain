@@ -8,9 +8,9 @@ public class CartAmountDiscount extends Discount {
 	private double threshold;
 
 	public CartAmountDiscount(String code, Double amount, double threshold) {
-		super(code, amount);
+		super(DiscountType.CART_AMOUNT, code, amount);
 
-		this.threshold = threshold;
+		setThreshold(threshold);
 
 	}
 
@@ -34,6 +34,10 @@ public class CartAmountDiscount extends Discount {
 			throw new IllegalArgumentException("Threshold must be 0 or more.");
 		}
 		this.threshold = threshold;
+	}
+	
+	public Double getThreshold() {
+		return threshold;
 	}
 
 }

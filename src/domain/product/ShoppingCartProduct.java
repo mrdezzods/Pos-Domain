@@ -10,6 +10,7 @@ public class ShoppingCartProduct {
 	
 	private Product product;
 	private final int id;
+	private int qty;
 
 	private void setProduct(Product product) {
 		if (product == null) {
@@ -32,8 +33,6 @@ public class ShoppingCartProduct {
 	public int getQty() {
 		return qty;
 	}
-
-	private int qty;
 	
 	public int getId() {
 		return this.id;
