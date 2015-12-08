@@ -55,4 +55,9 @@ public class PersonService {
 	private PersonDbRepository getPersonRepository() {
 		return personDbRepository;
 	}
+
+	public Role getRole(String userId) {
+		Person person = getPerson(userId);
+		return person == null ? null : person.getRole();
+	}
 }
