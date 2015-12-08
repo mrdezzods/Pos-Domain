@@ -17,11 +17,11 @@ public class ProductLocalRepository implements ProductDbRepository {
 		add(new Product(2, "Thing2", "This is a thing as well", 8000.0));
 	}
 	
-	
+
 
 	public Product get(int id) {
 		if (id <= 0) {
-			throw new IllegalArgumentException("id must be greater than 0");
+			throw new IllegalArgumentException("id must be greater than 0.");
 		}
 		return products.get(id);
 	}
