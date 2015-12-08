@@ -3,12 +3,6 @@ package domain.shoppingcartproduct;
 import domain.product.Product;
 
 public class ShoppingCartProduct {
-
-	private static int counter = 1;
-
-	private static int nextNumber() {
-		return counter++;
-	}
 	
 	private Product product;
 	private final int id;
@@ -46,10 +40,6 @@ public class ShoppingCartProduct {
 		this.setQty(qty);
 		this.id = id;
 		this.cartId = cartId;
-	}
-	
-	public ShoppingCartProduct(Product product, int qty, int cartId) {
-		this(nextNumber(), product, qty, cartId);
 	}
 
 	public double getTotal() {

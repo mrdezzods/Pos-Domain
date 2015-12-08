@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Properties;
 
 import db.DBtypes;
-import db.shoppingcartproduct.ShoppingCartProductLocalRepository;
+import db.shoppingcartproduct.ShoppingCartProductDbFactory;
+import db.shoppingcartproduct.ShoppingCartProductDbRepository;
 import domain.product.Product;
+import domain.product.ProductService;
 
 /**
  * 
@@ -14,15 +16,23 @@ import domain.product.Product;
  *
  */
 public class ShoppingCartProductService {
-	
-	private ShoppingCartProductLocalRepository repo;
 
-	public ShoppingCartProductService(DBtypes type, Properties properties) {
-		repo = new ShoppingCartProductLocalRepository();
+	private static int counter = 1;
+
+	private static int nextNumber() {
+		return counter++;
+	}
+	
+	private ShoppingCartProductDbRepository repo;
+
+	public ShoppingCartProductService(DBtypes type, Properties properties, ProductService productService) {
+		ShoppingCartProductDbFactory factory = new ShoppingCartProductDbFactory(productService);
+		repo = factory.createShoppingCartProductDb(type, properties);
+		counter = repo.getMaxId() + 1;
 	}
 
 	public void addToCart(int cartId, Product product, int quantity) {
-		ShoppingCartProduct p = new ShoppingCartProduct(product, quantity, cartId);
+		ShoppingCartProduct p = new ShoppingCartProduct(nextNumber(), product, quantity, cartId);
 		repo.add(p);
 	}
 

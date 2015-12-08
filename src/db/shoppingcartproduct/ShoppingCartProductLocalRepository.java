@@ -7,7 +7,7 @@ import java.util.Map;
 
 import domain.shoppingcartproduct.ShoppingCartProduct;
 
-public class ShoppingCartProductLocalRepository {
+public class ShoppingCartProductLocalRepository implements ShoppingCartProductDbRepository {
 	private Map<Integer, ShoppingCartProduct> products;
 
 	public ShoppingCartProductLocalRepository() {
@@ -47,5 +47,14 @@ public class ShoppingCartProductLocalRepository {
 			throw new IllegalArgumentException("id must be greater than 0");
 		}
 		products.remove(id);
+	}
+
+	@Override
+	public int getMaxId() {
+		int max = 0;
+		for (int i : products.keySet())
+			if (i > max)
+				max = i;
+		return max;
 	}
 }
