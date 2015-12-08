@@ -8,7 +8,6 @@ import db.shoppingcart.ShoppingCartDbRepository;
 import domain.discount.Discount;
 import domain.discount.DiscountService;
 import domain.product.Product;
-import domain.shoppingcartproduct.ShoppingCartProduct;
 import domain.shoppingcartproduct.ShoppingCartProductService;
 
 /**

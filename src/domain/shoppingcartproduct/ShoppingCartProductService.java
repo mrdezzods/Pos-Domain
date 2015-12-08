@@ -1,9 +1,11 @@
 package domain.shoppingcartproduct;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import db.DBtypes;
+import db.shoppingcartproduct.ShoppingCartProductLocalRepository;
 import domain.product.Product;
 
 /**
@@ -12,49 +14,50 @@ import domain.product.Product;
  *
  */
 public class ShoppingCartProductService {
+	
+	private ShoppingCartProductLocalRepository repo;
 
 	public ShoppingCartProductService(DBtypes type, Properties properties) {
-		// TODO Auto-generated constructor stub
+		repo = new ShoppingCartProductLocalRepository();
 	}
 
 	public void addToCart(int cartId, Product product, int quantity) {
-		// TODO Auto-generated method stub
-		
+		ShoppingCartProduct p = new ShoppingCartProduct(product, quantity, cartId);
+		repo.add(p);
 	}
 
 	public List<ShoppingCartProduct> getProductsFromCart(int cartId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void removeFromCart(int cartId, int prodctId) {
-		// TODO Auto-generated method stub
-		
+		List<ShoppingCartProduct> list = new ArrayList<>();
+		for (ShoppingCartProduct product : repo.getAll())
+			if (product.getCartId() == cartId)
+				list.add(product);
+		return list;
 	}
 
 	public ShoppingCartProduct getProduct(int productId) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.get(productId);
 	}
 
 	public void removeProduct(int productId) {
-		// TODO Auto-generated method stub
-		
+		repo.delete(productId);
 	}
 
 	public void alterQty(int productId, int newQuantity) {
-		// TODO Auto-generated method stub
-		
+		repo.get(productId).setQty(newQuantity);
 	}
 
 	public int getQtyFromCart(int cartId) {
-		// TODO Auto-generated method stub
-		return 0;
+		int qty = 0;
+		for (ShoppingCartProduct product : getProductsFromCart(cartId))
+			qty += product.getQty();
+		return qty;
 	}
 
 	public double getTotalPriceFromCart(int cartId) {
-		// TODO Auto-generated method stub
-		return 0;
+		double sum = 0;
+		for (ShoppingCartProduct product : getProductsFromCart(cartId))
+			sum += product.getQty();
+		return sum;
 	}
 
 }

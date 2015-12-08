@@ -4,7 +4,7 @@ import domain.product.Product;
 
 public class ShoppingCartProduct {
 
-	private static int counter = 0;
+	private static int counter = 1;
 
 	private static int nextNumber() {
 		return counter++;
@@ -13,6 +13,7 @@ public class ShoppingCartProduct {
 	private Product product;
 	private final int id;
 	private int qty;
+	private final int cartId;
 
 	private void setProduct(Product product) {
 		if (product == null) {
@@ -40,14 +41,23 @@ public class ShoppingCartProduct {
 		return this.id;
 	}
 
-	public ShoppingCartProduct(int id, Product product, int qty) {
+	public ShoppingCartProduct(int id, Product product, int qty, int cartId) {
 		this.setProduct(product);
 		this.setQty(qty);
-		this.id = nextNumber();
+		this.id = id;
+		this.cartId = cartId;
+	}
+	
+	public ShoppingCartProduct(Product product, int qty, int cartId) {
+		this(nextNumber(), product, qty, cartId);
 	}
 
 	public double getTotal() {
 		return product.getPrice() * qty;
+	}
+	
+	public int getCartId() {
+		return this.cartId;
 	}
 
 }
