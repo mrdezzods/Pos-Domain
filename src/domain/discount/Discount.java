@@ -2,17 +2,19 @@ package domain.discount;
 
 import java.util.List;
 
-import domain.product.ShoppingCartProduct;
+import domain.shoppingcartproduct.ShoppingCartProduct;
 
 public abstract class Discount {
 	protected double amount;
 	protected String code;
+	private final DiscountType type;
 
 	public abstract double calcuate(List<ShoppingCartProduct> products);
 
-	public Discount(String code, Double amount) {
+	public Discount(DiscountType type, String code, Double amount) {
 		this.setCode(code);
 		this.setAmount(amount);
+		this.type = type;
 	}
 
 	private void setCode(String code) {
@@ -29,8 +31,24 @@ public abstract class Discount {
 		this.amount = amount;
 	}
 	
+	public double getAmount() {
+		return this.amount;
+	}
+	
 	public String getCode(){
 		return this.code;
+	}
+	
+	public DiscountType getType() {
+		return this.type;
+	}
+
+	public Double getThreshold() {
+		return null;
+	}
+
+	public Integer getProductId() {
+		return null;
 	}
 
 }

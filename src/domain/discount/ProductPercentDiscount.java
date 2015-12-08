@@ -2,13 +2,13 @@ package domain.discount;
 
 import java.util.List;
 
-import domain.product.ShoppingCartProduct;
+import domain.shoppingcartproduct.ShoppingCartProduct;
 
 public class ProductPercentDiscount extends Discount {
 	private int productId;
 
 	public ProductPercentDiscount(String code, Double amount, int productId) {
-		super(code, amount);
+		super(DiscountType.PRODUCT_PERCENTAGE, code, amount);
 		this.setProductId(productId);
 		;
 	}
@@ -39,6 +39,10 @@ public class ProductPercentDiscount extends Discount {
 			throw new IllegalArgumentException("Amount must be between 0 and 1");
 		}
 		super.setAmount(amount);
+	}
+	
+	public Integer getProductId() {
+		return productId;
 	}
 
 }

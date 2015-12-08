@@ -2,14 +2,14 @@ package domain.discount;
 
 import java.util.List;
 
-import domain.product.ShoppingCartProduct;
+import domain.shoppingcartproduct.ShoppingCartProduct;
 
 public class ProductAmountDiscount extends Discount {
 
 	private int productId;
 
 	public ProductAmountDiscount(String code, Double amount, int productId) {
-		super(code, amount);
+		super(DiscountType.PRODUCT_AMOUNT, code, amount);
 		this.setProductId(productId);
 	}
 
@@ -33,6 +33,10 @@ public class ProductAmountDiscount extends Discount {
 
 	private void setProductId(int id){
 		this.productId = id;
+	}
+	
+	public Integer getProductId() {
+		return productId;
 	}
 
 }

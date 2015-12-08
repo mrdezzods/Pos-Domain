@@ -2,7 +2,7 @@ package domain.discount;
 
 import java.util.List;
 
-import domain.product.ShoppingCartProduct;
+import domain.shoppingcartproduct.ShoppingCartProduct;
 
 /**
  * 
@@ -18,7 +18,7 @@ public class CartPercentDiscount extends Discount {
 	 *            Discount percentage must be a float between 0 and 1
 	 */
 	public CartPercentDiscount(String code, Double amount) {
-		super(code, amount);
+		super(DiscountType.CART_PERCENTAGE, code, amount);
 		// TODO Auto-generated constructor stub
 	}
 
