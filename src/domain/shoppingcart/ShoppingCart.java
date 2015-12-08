@@ -10,7 +10,8 @@ import domain.shoppingcartproduct.ShoppingCartProductService;
 
 public class ShoppingCart extends Observable {
 
-	private final String userId; // can be null
+	private final String userId; 
+	// can be null
 	private final int id;
 	private Discount discount;
 	private final ShoppingCartProductService shoppingCartProductService;
