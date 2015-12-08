@@ -16,6 +16,8 @@ public class ProductLocalRepository implements ProductDbRepository {
 		add(new Product(1, "Thing", "This is a thing", 9000.0));
 		add(new Product(2, "Thing2", "This is a thing as well", 8000.0));
 	}
+	
+	
 
 	public Product get(int id) {
 		if (id <= 0) {
