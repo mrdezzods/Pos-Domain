@@ -65,6 +65,7 @@ public class ShoppingCart extends Observable {
 	}
 
 	public void reportChanges() {
+		System.out.println("notifying subs of changes");
 		setChanged();
 		notifyObservers();
 	}

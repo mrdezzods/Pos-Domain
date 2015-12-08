@@ -99,7 +99,7 @@ public class ShoppingCartProductSQLRepository extends SQLrepository implements
 		PreparedStatement statement = null;
 		String sql = "INSERT INTO " + TABLE_NAME + " (" + ID_FIELD + ", "
 				+ PRODUCT_ID_FIELD + ", " + CART_ID_FIELD + ", "
-				+ QUANTITY_FIELD + ") VALUES (?, ?, ?, ?, ?)";
+				+ QUANTITY_FIELD + ") VALUES (?, ?, ?, ?)";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, product.getId());
@@ -177,7 +177,7 @@ public class ShoppingCartProductSQLRepository extends SQLrepository implements
 			statement = connection.prepareStatement(sql);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
-				max = result.getInt(0);
+				max = result.getInt(1);
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);

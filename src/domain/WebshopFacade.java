@@ -23,11 +23,16 @@ public class WebshopFacade {
 	private final ShoppingCartProductService shoppingCartProductService;
 
 	public WebshopFacade(Properties properties) {
-		personService = new PersonService(DBtypes.LOCALDB, properties);
-		productService = new ProductService(DBtypes.LOCALDB, properties);
-		discountService = new DiscountService(DBtypes.LOCALDB, properties);
-		shoppingCartProductService = new ShoppingCartProductService(DBtypes.LOCALDB, properties, productService);
-		shoppingCartService = new ShoppingCartService(DBtypes.LOCALDB, properties, discountService, shoppingCartProductService);
+		String enumvorming = properties.getProperty("dbtype");
+		DBtypes DBtype = DBtypes.valueOf(enumvorming);
+
+		personService = new PersonService(DBtype, properties);
+		productService = new ProductService(DBtype, properties);
+		discountService = new DiscountService(DBtype, properties);
+		shoppingCartProductService = new ShoppingCartProductService(DBtype,
+				properties, productService);
+		shoppingCartService = new ShoppingCartService(DBtype, properties,
+				discountService, shoppingCartProductService);
 	}
 
 	// product things
@@ -134,13 +139,12 @@ public class WebshopFacade {
 		return shoppingCartService.getTotalQtyFromUser(userId);
 	}
 
-
 	// discount things
 	public void addDiscountToCart(int cartId, String code) {
 		shoppingCartService.setDiscount(cartId, getDiscount(code));
 	}
 
-	private Discount getDiscount(String code){
+	private Discount getDiscount(String code) {
 		return discountService.getDiscount(code);
 	}
 

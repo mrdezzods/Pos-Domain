@@ -26,7 +26,7 @@ public class ShoppingCartSQLRepository extends SQLrepository implements
 	private static final String TABLE_NAME = "r0376333_r0296118.shoppingcart";
 	private static final String ID_FIELD = "id";
 	private static final String EMAIL_FIELD = "email";
-	private static final String DISCOUNTCODE_FIELD = "discountcode";
+	private static final String DISCOUNTCODE_FIELD = "discount_code";
 
 	private final DiscountService discountService;
 	private final ShoppingCartProductService shoppingCartProductService;
@@ -104,7 +104,7 @@ public class ShoppingCartSQLRepository extends SQLrepository implements
 		PreparedStatement statement = null;
 		String sql = "INSERT INTO " + TABLE_NAME + " (" + ID_FIELD + ", "
 				+ EMAIL_FIELD + ", " + DISCOUNTCODE_FIELD
-				+ ") VALUES (?, ?, ?, ?)";
+				+ ") VALUES (?, ?, ?)";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, cart.getId());
@@ -179,7 +179,7 @@ public class ShoppingCartSQLRepository extends SQLrepository implements
 			statement = connection.prepareStatement(sql);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
-				max = result.getInt(0);
+				max = result.getInt(1);
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
