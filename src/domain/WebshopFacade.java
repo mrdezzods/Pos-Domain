@@ -1,10 +1,10 @@
 package domain;
 
 import java.util.List;
+import java.util.Observer;
 import java.util.Properties;
 
 import db.DBtypes;
-import domain.discount.Discount;
 import domain.discount.DiscountService;
 import domain.person.Person;
 import domain.person.PersonService;
@@ -13,6 +13,7 @@ import domain.product.Product;
 import domain.product.ProductService;
 import domain.shoppingcart.ShoppingCart;
 import domain.shoppingcart.ShoppingCartService;
+import domain.shoppingcartproduct.ShoppingCartProduct;
 import domain.shoppingcartproduct.ShoppingCartProductService;
 
 public class WebshopFacade {
@@ -138,14 +139,30 @@ public class WebshopFacade {
 	public int getTotalQtyFromUser(String userId) {
 		return shoppingCartService.getTotalQtyFromUser(userId);
 	}
+	
+	public void addProductToCart(int currentCartId, int productId, int qty) {
+		addProductToCart(currentCartId, getProduct(productId), qty);
+	}
+
+	public void addCartObserver(int cartId, Observer cartUi) {
+		shoppingCartService.addCartObserver(cartId, cartUi);
+	}
+
+	public List<ShoppingCartProduct> getProductsFromCart(int cartId) {
+		return shoppingCartService.getProductsFromCart(cartId);
+	}
+
+	public void alterProductInCart(int cartId, int productId, int newQuantity) {
+		shoppingCartService.alterProductInCart(cartId, productId, newQuantity);
+	}
+
+	public void reportChangesInCart(int cartId) {
+		shoppingCartService.reportChangesInCart(cartId);
+	}
 
 	// discount things
 	public void addDiscountToCart(int cartId, String code) {
-		shoppingCartService.setDiscount(cartId, getDiscount(code));
-	}
-
-	private Discount getDiscount(String code) {
-		return discountService.getDiscount(code);
+		shoppingCartService.setDiscount(cartId, discountService.getDiscount(code));
 	}
 
 	public String getDiscountCode(int cartId) {
@@ -155,7 +172,4 @@ public class WebshopFacade {
 	public void pay(int cartId, double paid) {
 		shoppingCartService.pay(cartId,paid);
 	}
-
-
-
 }

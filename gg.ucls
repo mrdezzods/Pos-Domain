@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="db.shoppingcart.ShoppingCartDbFactory" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/shoppingcart/ShoppingCartDbFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="101" width="419" x="1960" y="531"/>    
+    <position height="101" width="419" x="2013" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   <class id="2" language="java" name="db.shoppingcartproduct.ShoppingCartProductSQLRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/shoppingcartproduct/ShoppingCartProductSQLRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="281" width="377" x="1240" y="531"/>    
+    <position height="281" width="377" x="1293" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -22,7 +22,7 @@
   </class>  
   <class id="3" language="java" name="domain.shoppingcartproduct.ShoppingCartProduct" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/shoppingcartproduct/ShoppingCartProduct.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="263" width="242" x="116" y="888"/>    
+    <position height="263" width="242" x="169" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -31,7 +31,7 @@
   </class>  
   <class id="4" language="java" name="domain.shoppingcart.ShoppingCartService" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/shoppingcart/ShoppingCartService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="317" width="510" x="2962" y="531"/>    
+    <position height="335" width="510" x="3015" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,7 +40,7 @@
   </class>  
   <class id="5" language="java" name="domain.discount.DiscountFactory" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/discount/DiscountFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="101" width="402" x="1718" y="888"/>    
+    <position height="-1" width="-1" x="1900" y="919"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -49,7 +49,7 @@
   </class>  
   <class id="6" language="java" name="db.product.ProductLocalRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/product/ProductLocalRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="173" width="191" x="398" y="888"/>    
+    <position height="173" width="191" x="451" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -58,7 +58,7 @@
   </class>  
   <class id="7" language="java" name="domain.discount.CartAmountDiscount" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/discount/CartAmountDiscount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="155" width="272" x="2899" y="1479"/>    
+    <position height="155" width="272" x="2952" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -67,7 +67,7 @@
   </class>  
   <class id="8" language="java" name="db.discount.DiscountLocalRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/discount/DiscountLocalRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="173" width="199" x="3965" y="531"/>    
+    <position height="173" width="199" x="4018" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -77,7 +77,7 @@
   <class id="9" language="java" name="domain.shoppingcartproduct.ShoppingCartProductService" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/shoppingcartproduct/ShoppingCartProductService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="245" width="384" x="2160" y="888"/>    
+    <position height="-1" width="-1" x="2443" y="1016"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -86,7 +86,7 @@
   </class>  
   <class id="10" language="java" name="db.shoppingcart.ShoppingCartSQLRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/shoppingcart/ShoppingCartSQLRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="263" width="503" x="2419" y="531"/>    
+    <position height="263" width="503" x="2472" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -95,7 +95,7 @@
   </class>  
   <interface id="11" language="java" name="db.person.PersonDbRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/person/PersonDbRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="155" width="166" x="4515" y="888"/>    
+    <position height="155" width="166" x="4568" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -104,7 +104,7 @@
   </interface>  
   <class id="12" language="java" name="db.SQLrepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/SQLrepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="197" x="1977" y="-78"/>    
+    <position height="119" width="197" x="2030" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -114,7 +114,7 @@
   <interface id="13" language="java" name="db.shoppingcartproduct.ShoppingCartProductDbRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/shoppingcartproduct/ShoppingCartProductDbRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="173" width="267" x="1240" y="1479"/>    
+    <position height="173" width="267" x="1293" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -123,7 +123,7 @@
   </interface>  
   <enumeration id="14" language="java" name="domain.discount.DiscountType" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/discount/DiscountType.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="155" width="257" x="3211" y="1479"/>    
+    <position height="155" width="257" x="3264" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -132,7 +132,7 @@
   </enumeration>  
   <class id="15" language="java" name="domain.shoppingcart.ShoppingCart" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/shoppingcart/ShoppingCart.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="317" width="371" x="3533" y="531"/>    
+    <position height="335" width="371" x="3586" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -141,7 +141,7 @@
   </class>  
   <class id="16" language="java" name="domain.WebshopFacade" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/WebshopFacade.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="569" width="307" x="2718" y="-78"/>    
+    <position height="587" width="307" x="2771" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -150,7 +150,7 @@
   </class>  
   <enumeration id="17" language="java" name="domain.person.Role" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/person/Role.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="137" width="157" x="4444" y="1479"/>    
+    <position height="137" width="157" x="4497" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -159,7 +159,7 @@
   </enumeration>  
   <enumeration id="18" language="java" name="db.DBtypes" project="POS DOMAIN" file="/POS DOMAIN/src/db/DBtypes.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="137" x="116" y="-78"/>    
+    <position height="119" width="137" x="169" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -168,7 +168,7 @@
   </enumeration>  
   <class id="19" language="java" name="domain.product.ProductService" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/product/ProductService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="191" width="272" x="947" y="888"/>    
+    <position height="191" width="272" x="1000" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -177,7 +177,7 @@
   </class>  
   <class id="20" language="java" name="domain.discount.ProductPercentDiscount" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/discount/ProductPercentDiscount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="173" width="272" x="3508" y="1479"/>    
+    <position height="173" width="272" x="3561" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -186,7 +186,7 @@
   </class>  
   <interface id="21" language="java" name="db.product.ProductDbRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/product/ProductDbRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="155" width="172" x="610" y="1479"/>    
+    <position height="155" width="172" x="663" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -195,7 +195,7 @@
   </interface>  
   <class id="22" language="java" name="db.discount.DiscountDbFactory" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/discount/DiscountDbFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="363" x="293" y="-78"/>    
+    <position height="119" width="363" x="346" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -204,7 +204,7 @@
   </class>  
   <class id="23" language="java" name="domain.discount.ProductAmountDiscount" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/discount/ProductAmountDiscount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="155" width="272" x="3820" y="1479"/>    
+    <position height="155" width="272" x="3873" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -213,7 +213,7 @@
   </class>  
   <class id="24" language="java" name="db.shoppingcartproduct.ShoppingCartProductDbFactory" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/shoppingcartproduct/ShoppingCartProductDbFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="101" width="503" x="697" y="531"/>    
+    <position height="101" width="503" x="750" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -222,7 +222,7 @@
   </class>  
   <class id="25" language="java" name="domain.person.Person" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/person/Person.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="551" width="271" x="4204" y="888"/>    
+    <position height="551" width="271" x="4257" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -231,7 +231,7 @@
   </class>  
   <class id="26" language="java" name="db.person.PersonLocalRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/person/PersonLocalRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="173" width="185" x="4204" y="531"/>    
+    <position height="173" width="185" x="4257" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -240,7 +240,7 @@
   </class>  
   <class id="27" language="java" name="db.person.PersonDbFactory" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/person/PersonDbFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="345" x="706" y="-78"/>    
+    <position height="119" width="345" x="759" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -249,7 +249,7 @@
   </class>  
   <class id="28" language="java" name="domain.discount.CartPercentDiscount" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/discount/CartPercentDiscount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="272" x="4132" y="1479"/>    
+    <position height="119" width="272" x="4185" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -258,7 +258,7 @@
   </class>  
   <interface id="29" language="java" name="db.shoppingcart.ShoppingCartDbRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/shoppingcart/ShoppingCartDbRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="173" width="213" x="3197" y="888"/>    
+    <position height="173" width="213" x="3250" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -267,7 +267,7 @@
   </interface>  
   <interface id="30" language="java" name="db.discount.DiscountDbRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/discount/DiscountDbRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="155" width="180" x="2679" y="1479"/>    
+    <position height="155" width="180" x="2732" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -276,7 +276,7 @@
   </interface>  
   <class id="31" language="java" name="domain.DbException" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/DbException.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="137" width="197" x="1101" y="-78"/>    
+    <position height="137" width="197" x="1154" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -285,7 +285,7 @@
   </class>  
   <class id="32" language="java" name="domain.person.PersonService" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/person/PersonService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="263" width="266" x="4681" y="531"/>    
+    <position height="263" width="266" x="4734" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -294,7 +294,7 @@
   </class>  
   <class id="33" language="java" name="domain.discount.DiscountService" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/discount/DiscountService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="191" width="284" x="2679" y="888"/>    
+    <position height="191" width="284" x="2732" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -303,7 +303,7 @@
   </class>  
   <class id="34" language="java" name="db.product.ProductSQLRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/product/ProductSQLRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="263" width="215" x="442" y="531"/>    
+    <position height="263" width="215" x="495" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -312,7 +312,7 @@
   </class>  
   <class id="35" language="java" name="db.shoppingcart.ShoppingCartLocalRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/shoppingcart/ShoppingCartLocalRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="191" width="232" x="3925" y="-78"/>    
+    <position height="191" width="232" x="3978" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -321,7 +321,7 @@
   </class>  
   <class id="36" language="java" name="db.product.ProductDbFactory" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/product/ProductDbFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="351" x="1338" y="-78"/>    
+    <position height="119" width="351" x="1391" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -330,7 +330,7 @@
   </class>  
   <class id="37" language="java" name="domain.NotAuthorizedException" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/NotAuthorizedException.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="119" width="198" x="1739" y="-78"/>    
+    <position height="119" width="198" x="1792" y="-167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -340,7 +340,7 @@
   <class id="38" language="java" name="db.shoppingcartproduct.ShoppingCartProductLocalRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/shoppingcartproduct/ShoppingCartProductLocalRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="191" width="286" x="116" y="531"/>    
+    <position height="191" width="286" x="169" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -349,7 +349,7 @@
   </class>  
   <class id="39" language="java" name="domain.product.Product" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/product/Product.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="407" width="213" x="257" y="1479"/>    
+    <position height="407" width="213" x="310" y="1426"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -358,7 +358,7 @@
   </class>  
   <class id="40" language="java" name="db.discount.DiscountSQLRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/discount/DiscountSQLRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="281" width="221" x="1678" y="531"/>    
+    <position height="281" width="221" x="1731" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -367,7 +367,7 @@
   </class>  
   <class id="41" language="java" name="domain.discount.Discount" project="POS DOMAIN" 
     file="/POS DOMAIN/src/domain/discount/Discount.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="263" width="272" x="3533" y="888"/>    
+    <position height="263" width="272" x="3586" y="835"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -376,346 +376,356 @@
   </class>  
   <class id="42" language="java" name="db.person.PersonSQLRepository" project="POS DOMAIN" 
     file="/POS DOMAIN/src/db/person/PersonSQLRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="299" width="212" x="4429" y="531"/>    
+    <position height="299" width="212" x="4482" y="460"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="43">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="44" name="factory"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="46">    
-    <bendpoint x="687" y="888"/>    
-    <end type="SOURCE" refId="38"/>    
-    <end type="TARGET" refId="13"/>  
-  </realization>  
-  <association id="47">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="48" name="persons"/>      
-      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="2"/>    
+  <generalization id="43">    
+    <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <association id="51">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="52" name="personService"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="38" navigable="false">      
-      <attribute id="55" name="products"/>      
-      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="57">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="58" name="discounts"/>      
-      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="61" name="discount"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
-    <end type="SOURCE" refId="36" navigable="false">      
-      <attribute id="64" name="factory"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="36" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="66">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="67" name="personDbRepository"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="69">    
-    <bendpoint x="1249" y="888"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="13"/>  
+  <generalization id="44">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="41"/>  
+  </generalization>  
+  <realization id="45">    
+    <bendpoint x="3493" y="835"/>    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="30"/>  
   </realization>  
-  <association id="70">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="71" name="repo"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="73">    
+  <realization id="46">    
+    <bendpoint x="672" y="835"/>    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="47">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="74" name="shoppingCartProductService"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
+      <attribute id="48" name="shoppingCartProductService">        
+        <position height="19" width="165" x="2573" y="973"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="76">    
-    <end type="SOURCE" refId="10"/>    
+  <realization id="50">    
+    <bendpoint x="1302" y="835"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="13"/>  
+  </realization>  
+  <generalization id="51">    
+    <end type="SOURCE" refId="40"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="77">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="41"/>  
-  </generalization>  
-  <realization id="78">    
-    <bendpoint x="3934" y="531"/>    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="29"/>  
-  </realization>  
-  <generalization id="79">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="41"/>  
-  </generalization>  
-  <realization id="80">    
-    <bendpoint x="619" y="888"/>    
-    <end type="SOURCE" refId="34"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <generalization id="81">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="82">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="83" name="productService"/>      
-      <multiplicity id="84" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="85">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="86" name="product"/>      
-      <multiplicity id="87" minimum="0" maximum="1"/>    
+  <association id="52">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="53" name="products"/>      
+      <multiplicity id="54" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="39" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="88">    
-    <bendpoint x="3502" y="531"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="89" name="discountService"/>      
-      <multiplicity id="90" minimum="0" maximum="1"/>    
+  <association id="55">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="56" name="discountService"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="91">    
+  <association id="58">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="59" name="discountService"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
     <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="92" name="carts"/>      
-      <multiplicity id="93" minimum="0" maximum="2147483647"/>    
+      <attribute id="62" name="carts"/>      
+      <multiplicity id="63" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="94">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="95" name="repo"/>      
-      <multiplicity id="96" minimum="0" maximum="1"/>    
+  <association id="64">    
+    <bendpoint x="1700" y="460"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="65" name="productService"/>      
+      <multiplicity id="66" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="30" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="97">    
-    <end type="SOURCE" refId="40"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="98">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="99" name="role"/>      
-      <multiplicity id="100" minimum="0" maximum="1"/>    
+  <realization id="67">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="68">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="69" name="discounts"/>      
+      <multiplicity id="70" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="41" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="101">    
+  <association id="71">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="102" name="discountService"/>      
-      <multiplicity id="103" minimum="0" maximum="1"/>    
+      <attribute id="72" name="shoppingCartProductService">        
+        <position height="19" width="165" x="2434" y="835"/>      
+      </attribute>      
+      <multiplicity id="73" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="104">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="105" name="products"/>      
-      <multiplicity id="106" minimum="0" maximum="2147483647"/>    
+  <association id="74">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="75" name="product"/>      
+      <multiplicity id="76" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="39" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="107">    
-    <bendpoint x="1647" y="531"/>    
+  <association id="77">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="78" name="productRepository"/>      
+      <multiplicity id="79" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="80">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="81">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="82" name="discount"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="84">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="85">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="86" name="personDbRepository"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="89" name="repo"/>      
+      <multiplicity id="90" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
     <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="92" name="shoppingCartService"/>      
+      <multiplicity id="93" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="94">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="95" name="type"/>      
+      <multiplicity id="96" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="97">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="41"/>  
+  </generalization>  
+  <generalization id="98">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="99">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="100" name="repo"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="102">    
+    <bendpoint x="740" y="835"/>    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="13"/>  
+  </realization>  
+  <association id="103">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="104" name="persons"/>      
+      <multiplicity id="105" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="106">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="41"/>  
+  </generalization>  
+  <association id="107">    
+    <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="108" name="productService"/>      
       <multiplicity id="109" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="110">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="111" name="factory"/>      
-      <multiplicity id="112" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="113">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="11"/>  
+  <generalization id="110">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <realization id="111">    
+    <bendpoint x="1740" y="835"/>    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="30"/>  
   </realization>  
-  <association id="114">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="115" name="factory"/>      
-      <multiplicity id="116" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="117">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <association id="118">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="119" name="shoppingCartProductService"/>      
-      <multiplicity id="120" minimum="0" maximum="1"/>    
+  <association id="112">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="113" name="shoppingCartProductService">        
+        <position height="19" width="165" x="2568" y="867"/>      
+      </attribute>      
+      <multiplicity id="114" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="115">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="116" name="personService"/>      
+      <multiplicity id="117" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="119" name="factory"/>      
+      <multiplicity id="120" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <realization id="121">    
-    <bendpoint x="3440" y="888"/>    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="30"/>  
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="11"/>  
   </realization>  
   <association id="122">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="123" name="repo"/>      
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="123" name="factory"/>      
       <multiplicity id="124" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="29" navigable="true"/>    
+    <end type="TARGET" refId="27" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="125">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="126" name="productService"/>      
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="126" name="repo"/>      
       <multiplicity id="127" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="128">    
-    <bendpoint x="1929" y="531"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="129" name="shoppingCartProductService"/>      
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="129" name="shoppingCartProductService">        
+        <position height="19" width="165" x="2262" y="782"/>      
+      </attribute>      
       <multiplicity id="130" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="131">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="132" name="shoppingCartService"/>      
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="132" name="factory"/>      
       <multiplicity id="133" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="22" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="134">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="135" name="productRepository"/>      
-      <multiplicity id="136" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="135" name="products"/>      
+      <multiplicity id="136" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="137">    
+  <association id="137">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="138" name="productService"/>      
+      <multiplicity id="139" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="140">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="141" name="role"/>      
+      <multiplicity id="142" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="143">    
     <end type="SOURCE" refId="20"/>    
     <end type="TARGET" refId="41"/>  
   </generalization>  
-  <association id="138">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="139" name="shoppingCartProductService"/>      
-      <multiplicity id="140" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="141">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="21"/>  
+  <realization id="144">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="29"/>  
   </realization>  
-  <generalization id="142">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="41"/>  
-  </generalization>  
-  <association id="143">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="144" name="shoppingCartProductService"/>      
-      <multiplicity id="145" minimum="0" maximum="1"/>    
+  <association id="145">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="146" name="factory"/>      
+      <multiplicity id="147" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="146">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="147" name="discountService"/>      
-      <multiplicity id="148" minimum="0" maximum="1"/>    
+  <association id="148">    
+    <bendpoint x="3555" y="460"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="149" name="discountService"/>      
+      <multiplicity id="150" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="149">    
-    <bendpoint x="1687" y="888"/>    
-    <end type="SOURCE" refId="40"/>    
-    <end type="TARGET" refId="30"/>  
-  </realization>  
-  <association id="150">    
-    <end type="SOURCE" refId="41" navigable="false">      
-      <attribute id="151" name="type"/>      
-      <multiplicity id="152" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="153">    
-    <end type="SOURCE" refId="10"/>    
+  <realization id="151">    
+    <bendpoint x="3987" y="460"/>    
+    <end type="SOURCE" refId="35"/>    
     <end type="TARGET" refId="29"/>  
   </realization>  
-  <generalization id="154">    
-    <end type="SOURCE" refId="34"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
+  <association id="152">    
+    <bendpoint x="1982" y="460"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="153" name="shoppingCartProductService">        
+        <position height="19" width="165" x="2166" y="832"/>      
+      </attribute>      
+      <multiplicity id="154" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

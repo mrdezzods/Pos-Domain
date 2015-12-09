@@ -1,5 +1,7 @@
 package domain.shoppingcart;
 
+import java.util.List;
+import java.util.Observer;
 import java.util.Properties;
 
 import db.DBtypes;
@@ -8,6 +10,7 @@ import db.shoppingcart.ShoppingCartDbRepository;
 import domain.discount.Discount;
 import domain.discount.DiscountService;
 import domain.product.Product;
+import domain.shoppingcartproduct.ShoppingCartProduct;
 import domain.shoppingcartproduct.ShoppingCartProductService;
 
 /**
@@ -113,5 +116,21 @@ public class ShoppingCartService {
 	public void pay(int cartId, double paid) {
 		getCart(cartId).pay(paid);
 		
+	}
+
+	public void addCartObserver(int cartId, Observer cartUi) {
+		getCart(cartId).addObserver(cartUi);
+	}
+
+	public List<ShoppingCartProduct> getProductsFromCart(int cartId) {
+		return getCart(cartId).getProducts();
+	}
+
+	public void alterProductInCart(int cartId, int productId, int newQuantity) {
+		getCart(cartId).alterProduct(productId, newQuantity);
+	}
+
+	public void reportChangesInCart(int cartId) {
+		getCart(cartId).reportChanges();
 	}
 }
