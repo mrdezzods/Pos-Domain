@@ -152,4 +152,10 @@ public class WebshopFacade {
 		return shoppingCartService.getDiscountCode(cartId);
 	}
 
+	public void pay(int cartId, double paid) {
+		shoppingCartService.pay(cartId,paid);
+	}
+
+
+
 }

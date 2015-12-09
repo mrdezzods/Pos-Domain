@@ -10,7 +10,7 @@ import domain.shoppingcartproduct.ShoppingCartProductService;
 
 public class ShoppingCart extends Observable {
 
-	private final String userId; 
+	private final String userId;
 	// can be null
 	private final int id;
 	private Discount discount;
@@ -22,7 +22,8 @@ public class ShoppingCart extends Observable {
 		this.shoppingCartProductService = shoppingCartProductService;
 	}
 
-	public ShoppingCart(int id, String userid, Discount discount, ShoppingCartProductService shoppingCartProductService) {
+	public ShoppingCart(int id, String userid, Discount discount,
+			ShoppingCartProductService shoppingCartProductService) {
 		this(id, userid, shoppingCartProductService);
 		setDiscount(discount);
 	}
@@ -65,7 +66,6 @@ public class ShoppingCart extends Observable {
 	}
 
 	public void reportChanges() {
-		System.out.println("notifying subs of changes");
 		setChanged();
 		notifyObservers();
 	}
@@ -76,7 +76,15 @@ public class ShoppingCart extends Observable {
 	}
 
 	public String getDiscountCode() {
-		if (discount == null) return "";
+		if (discount == null)
+			return "";
 		return discount.getCode();
+	}
+
+	public void pay(double paid) {
+		if (this.getTotalPrice() > paid) {
+			throw new IllegalArgumentException("Insufficient amount");
+		}
+
 	}
 }

@@ -66,7 +66,7 @@ public class ShoppingCartProductService {
 	public double getTotalPriceFromCart(int cartId) {
 		double sum = 0;
 		for (ShoppingCartProduct product : getProductsFromCart(cartId))
-			sum += product.getQty();
+			sum += product.getTotal();
 		return sum;
 	}
 

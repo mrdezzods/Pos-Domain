@@ -109,4 +109,9 @@ public class ShoppingCartService {
 					"A cart with this ID doesn't exist");
 		return cart.getDiscountCode();
 	}
+
+	public void pay(int cartId, double paid) {
+		getCart(cartId).pay(paid);
+		
+	}
 }
