@@ -7,6 +7,11 @@ import db.DBtypes;
 import db.discount.DiscountDbFactory;
 import db.discount.DiscountDbRepository;
 
+/**
+ * 
+ * @author Milan Sanders, Vijay Sapkota
+ *
+ */
 public class DiscountService {
 	DiscountDbRepository repo;
 

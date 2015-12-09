@@ -4,6 +4,11 @@ import java.util.List;
 
 import domain.shoppingcartproduct.ShoppingCartProduct;
 
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
 public interface ShoppingCartProductDbRepository {
 	ShoppingCartProduct get(int id);
 	List<ShoppingCartProduct> getAll();

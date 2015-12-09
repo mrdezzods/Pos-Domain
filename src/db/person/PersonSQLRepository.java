@@ -14,6 +14,11 @@ import domain.DbException;
 import domain.person.Person;
 import domain.person.Role;
 
+/**
+ * 
+ * @author Milan Sanders, Wouter Dumoulin
+ *
+ */
 public class PersonSQLRepository extends SQLrepository implements PersonDbRepository {
 
 	private static final String TABLE_NAME = "r0376333_r0296118.person";

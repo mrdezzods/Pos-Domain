@@ -4,6 +4,11 @@ import java.util.List;
 
 import domain.shoppingcartproduct.ShoppingCartProduct;
 
+/**
+ * 
+ * @author Milan Sanders, Vijay Sapkota
+ *
+ */
 public abstract class Discount {
 	protected double amount;
 	protected String code;

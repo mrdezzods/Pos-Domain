@@ -7,6 +7,11 @@ import java.util.Map;
 
 import domain.shoppingcartproduct.ShoppingCartProduct;
 
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
 public class ShoppingCartProductLocalRepository implements ShoppingCartProductDbRepository {
 	private Map<Integer, ShoppingCartProduct> products;
 

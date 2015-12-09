@@ -6,7 +6,7 @@ import domain.shoppingcartproduct.ShoppingCartProduct;
 
 /**
  * 
- * @author mrdezzods
+ * @author Milan Sanders, Vijay Sapkota
  *
  */
 public class CartPercentDiscount extends Discount {

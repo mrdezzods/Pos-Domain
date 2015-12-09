@@ -7,6 +7,11 @@ import java.util.Properties;
 
 import domain.DbException;
 
+/**
+ * 
+ * @author Milan Sanders, Wouter Dumoulin
+ *
+ */
 public abstract class SQLrepository {
 	
 	private Properties properties;

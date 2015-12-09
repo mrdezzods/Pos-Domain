@@ -4,6 +4,11 @@ import java.util.Properties;
 
 import db.DBtypes;
 
+/**
+ * 
+ * @author Milan Sanders, Wouter Dumoulin
+ *
+ */
 public class ProductDbFactory {
 	private static ProductDbFactory factory = new ProductDbFactory();
 

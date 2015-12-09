@@ -8,6 +8,11 @@ import java.util.Map;
 import domain.person.Person;
 import domain.person.Role;
 
+/**
+ * 
+ * @author Milan Sanders, Wouter Dumoulin
+ *
+ */
 public class PersonLocalRepository implements PersonDbRepository{
 	private Map<String, Person> persons;
 

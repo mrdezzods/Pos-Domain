@@ -14,6 +14,11 @@ import domain.DbException;
 import domain.product.ProductService;
 import domain.shoppingcartproduct.ShoppingCartProduct;
 
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
 public class ShoppingCartProductSQLRepository extends SQLrepository implements
 		ShoppingCartProductDbRepository {
 

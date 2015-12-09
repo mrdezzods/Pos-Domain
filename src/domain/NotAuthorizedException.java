@@ -1,5 +1,10 @@
 package domain;
 
+/**
+ * 
+ * @author Milan Sanders, Wouter Dumoulin
+ *
+ */
 public class NotAuthorizedException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	

@@ -16,6 +16,11 @@ import domain.shoppingcart.ShoppingCartService;
 import domain.shoppingcartproduct.ShoppingCartProduct;
 import domain.shoppingcartproduct.ShoppingCartProductService;
 
+/**
+ * 
+ * @author Milan Sanders, Wouter Dumoulin, Vijay Sapkota
+ *
+ */
 public class WebshopFacade {
 	private final PersonService personService;
 	private final ProductService productService;

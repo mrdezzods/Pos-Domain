@@ -4,6 +4,11 @@ import java.util.List;
 
 import domain.shoppingcartproduct.ShoppingCartProduct;
 
+/**
+ * 
+ * @author Milan Sanders, Vijay Sapkota
+ *
+ */
 public class CartAmountDiscount extends Discount {
 	private double threshold;
 

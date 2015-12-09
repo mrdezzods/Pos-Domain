@@ -13,6 +13,11 @@ import db.SQLrepository;
 import domain.DbException;
 import domain.product.Product;
 
+/**
+ * 
+ * @author Milan Sanders, Wouter Dumoulin
+ *
+ */
 public class ProductSQLRepository extends SQLrepository implements
 		ProductDbRepository {
 

@@ -5,6 +5,11 @@ import java.util.Properties;
 import db.DBtypes;
 import domain.product.ProductService;
 
+/**
+ * 
+ * @author Milan Sanders
+ *
+ */
 public class ShoppingCartProductDbFactory {
 	
 	private final ProductService productService;

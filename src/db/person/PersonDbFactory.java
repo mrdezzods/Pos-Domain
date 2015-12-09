@@ -4,6 +4,11 @@ import java.util.Properties;
 
 import db.DBtypes;
 
+/**
+ * 
+ * @author Milan Sanders, Wouter Dumoulin
+ *
+ */
 public class PersonDbFactory {
 	private static PersonDbFactory factory = new PersonDbFactory();
 	

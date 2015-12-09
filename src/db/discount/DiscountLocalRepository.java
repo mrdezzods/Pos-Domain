@@ -9,6 +9,11 @@ import domain.discount.CartAmountDiscount;
 import domain.discount.CartPercentDiscount;
 import domain.discount.Discount;
 
+/**
+ * 
+ * @author Milan Sanders, Vijay Sapkota
+ *
+ */
 public class DiscountLocalRepository implements DiscountDbRepository{
 
 	Map<String, Discount> discounts = new HashMap<>();

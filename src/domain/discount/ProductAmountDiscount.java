@@ -4,6 +4,11 @@ import java.util.List;
 
 import domain.shoppingcartproduct.ShoppingCartProduct;
 
+/**
+ * 
+ * @author Milan Sanders, Vijay Sapkota
+ *
+ */
 public class ProductAmountDiscount extends Discount {
 
 	private int productId;
