@@ -10,7 +10,12 @@ import db.DBtypes;
  *
  */
 public class DiscountDbFactory {
+
 	private static DiscountDbFactory factory = new DiscountDbFactory();
+
+	private DiscountDbFactory() {
+
+	}
 
 	public static DiscountDbFactory getDiscountDbFactory() {
 		return factory;
