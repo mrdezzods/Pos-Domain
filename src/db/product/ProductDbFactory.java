@@ -6,21 +6,13 @@ import db.DBtypes;
 
 /**
  * 
- * @author Milan Sanders, Wouter Dumoulin
+ * @author Milan Sanders, Wouter Dumoulin, Vijay Sapkota
  *
  */
 public class ProductDbFactory {
-	private static ProductDbFactory factory = new ProductDbFactory();
-
-	private ProductDbFactory() {
-	}
-
-	public static ProductDbFactory getProductDbFactory() {
-		return factory;
-	}
+	private static ProductDbRepository db = null;
 
 	public ProductDbRepository createProductDb(DBtypes type, Properties properties) {
-		ProductDbRepository db = null;
 		switch (type) {
 		case SQLDB:
 			db = new ProductSQLRepository(properties);

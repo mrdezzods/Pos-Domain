@@ -11,7 +11,7 @@ public class ProductService {
 	private ProductDbRepository productRepository;
 
 	public ProductService(DBtypes type, Properties properties) {
-		ProductDbFactory factory = ProductDbFactory.getProductDbFactory();
+		ProductDbFactory factory = new ProductDbFactory();
 		productRepository = factory.createProductDb(type, properties);
 	}
 	

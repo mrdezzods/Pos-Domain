@@ -6,20 +6,13 @@ import db.DBtypes;
 
 /**
  * 
- * @author Milan Sanders, Wouter Dumoulin
+ * @author Milan Sanders, Wouter Dumoulin, Vijay Sapkota
  *
  */
 public class PersonDbFactory {
-	private static PersonDbFactory factory = new PersonDbFactory();
-	
-	private PersonDbFactory() {}
-	
-	public static PersonDbFactory getPersonDbFactory() {
-		return factory;
-	}
-	
+	private static PersonDbRepository db = null;
+
 	public PersonDbRepository createPersonDb(DBtypes type, Properties properties) {
-		PersonDbRepository db = null;
 		switch (type) {
 		case SQLDB:
 			db = new PersonSQLRepository(properties);

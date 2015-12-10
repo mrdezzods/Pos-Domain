@@ -6,23 +6,15 @@ import db.DBtypes;
 
 /**
  * 
- * @author Milan Sanders
+ * @author Milan Sanders, Vijay
  *
  */
 public class DiscountDbFactory {
 
-	private static DiscountDbFactory factory = new DiscountDbFactory();
-
-	private DiscountDbFactory() {
-
-	}
-
-	public static DiscountDbFactory getDiscountDbFactory() {
-		return factory;
-	}
+	private static DiscountDbRepository db = null;
 
 	public DiscountDbRepository createDiscountDb(DBtypes type, Properties properties) {
-		DiscountDbRepository db = null;
+
 		switch (type) {
 		case SQLDB:
 			db = new DiscountSQLRepository(properties);

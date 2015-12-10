@@ -16,7 +16,7 @@ public class DiscountService {
 	DiscountDbRepository repo;
 
 	public DiscountService(DBtypes type, Properties properties) {
-		DiscountDbFactory factory = DiscountDbFactory.getDiscountDbFactory();
+		DiscountDbFactory factory = new DiscountDbFactory();
 		repo = factory.createDiscountDb(type, properties);
 	}
 

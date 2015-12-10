@@ -11,7 +11,7 @@ public class PersonService {
 	private PersonDbRepository personDbRepository;
 
 	public PersonService(DBtypes type, Properties properties) {
-		PersonDbFactory factory = PersonDbFactory.getPersonDbFactory();
+		PersonDbFactory factory = new PersonDbFactory();
 		personDbRepository = factory.createPersonDb(type, properties);
 	}
 
@@ -28,13 +28,13 @@ public class PersonService {
 	}
 
 	public boolean canHaveAsPerson(Person person) {
-		if(hasPerson(person))
+		if (hasPerson(person))
 			throw new IllegalArgumentException("User already exists");
 		return true;
 	}
 
 	public void addPerson(Person person) {
-		if(canHaveAsPerson(person))
+		if (canHaveAsPerson(person))
 			getPersonRepository().add(person);
 	}
 
@@ -46,7 +46,7 @@ public class PersonService {
 		getPersonRepository().delete(id);
 	}
 
-	public Person getAuthenticatedUser(String personId, String password) {		
+	public Person getAuthenticatedUser(String personId, String password) {
 		Person person;
 		person = getPerson(personId);
 		return (person != null && person.isCorrectPassword(password)) ? person : null;

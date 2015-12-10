@@ -8,6 +8,11 @@ import domain.product.Product;
 import domain.shoppingcartproduct.ShoppingCartProduct;
 import domain.shoppingcartproduct.ShoppingCartProductService;
 
+/**
+ * 
+ * @author Vijay Sapkota, Milan Sanders
+ *
+ */
 public class ShoppingCart extends Observable {
 
 	private final String userId;
@@ -15,11 +20,13 @@ public class ShoppingCart extends Observable {
 	private final int id;
 	private Discount discount;
 	private final ShoppingCartProductService shoppingCartProductService;
+	private ShoppingCartState state;
 
 	public ShoppingCart(int id, String userid, ShoppingCartProductService shoppingCartProductService) {
 		this.userId = userid;
 		this.id = id;
 		this.shoppingCartProductService = shoppingCartProductService;
+		this.setState(new PendingState(this));
 	}
 
 	public ShoppingCart(int id, String userid, Discount discount,
@@ -85,6 +92,19 @@ public class ShoppingCart extends Observable {
 		if (this.getTotalPrice() > paid) {
 			throw new IllegalArgumentException("Insufficient amount");
 		}
+		this.state = new CompletedState(this);
 
 	}
+
+	private void setState(ShoppingCartState state) {
+		if (state == null) {
+			throw new IllegalArgumentException("Invalid state");
+		}
+		this.state = state;
+	}
+
+	public ShoppingCartState getState() {
+		return this.state;
+	}
+
 }
