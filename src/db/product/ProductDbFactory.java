@@ -15,10 +15,10 @@ public class ProductDbFactory {
 	public ProductDbRepository createProductDb(DBtypes type, Properties properties) {
 		switch (type) {
 		case SQLDB:
-			db = new ProductSQLRepository(properties);
+			db = ProductSQLRepository.instance(properties);
 			break;
 		case LOCALDB:
-			db = new ProductLocalRepository();
+			db = ProductLocalRepository.instance(properties);
 			break;
 		}
 		return db;

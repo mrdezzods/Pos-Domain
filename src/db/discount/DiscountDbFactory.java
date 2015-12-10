@@ -17,10 +17,10 @@ public class DiscountDbFactory {
 
 		switch (type) {
 		case SQLDB:
-			db = new DiscountSQLRepository(properties);
+			db = DiscountSQLRepository.instance(properties);
 			break;
 		case LOCALDB:
-			db = new DiscountLocalRepository();
+			db = DiscountLocalRepository.instance(properties);
 			break;
 		}
 		return db;

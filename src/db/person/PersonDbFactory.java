@@ -15,10 +15,10 @@ public class PersonDbFactory {
 	public PersonDbRepository createPersonDb(DBtypes type, Properties properties) {
 		switch (type) {
 		case SQLDB:
-			db = new PersonSQLRepository(properties);
+			db = PersonSQLRepository.instance(properties);
 			break;
 		case LOCALDB:
-			db = new PersonLocalRepository();
+			db = PersonLocalRepository.instance(properties);
 			break;
 		}
 		return db;

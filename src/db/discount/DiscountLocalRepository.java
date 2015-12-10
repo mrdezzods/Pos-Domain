@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import domain.discount.CartAmountDiscount;
 import domain.discount.CartPercentDiscount;
@@ -14,11 +15,13 @@ import domain.discount.Discount;
  * @author Milan Sanders, Vijay Sapkota
  *
  */
-public class DiscountLocalRepository implements DiscountDbRepository{
+public class DiscountLocalRepository implements DiscountDbRepository {
 
 	Map<String, Discount> discounts = new HashMap<>();
 
-	public DiscountLocalRepository() {
+	private static DiscountDbRepository repo = null;
+
+	private DiscountLocalRepository() {
 
 		CartAmountDiscount d1 = new CartAmountDiscount("C1", (double) 10, 10);
 		CartPercentDiscount d2 = new CartPercentDiscount("C2", 0.9);
@@ -27,7 +30,7 @@ public class DiscountLocalRepository implements DiscountDbRepository{
 	}
 
 	public Discount get(String code) {
-		if(code == null){
+		if (code == null) {
 			throw new IllegalArgumentException("No code given");
 		}
 		return discounts.get(code);
@@ -40,7 +43,7 @@ public class DiscountLocalRepository implements DiscountDbRepository{
 
 	@Override
 	public void add(Discount discount) {
-		if(discount == null){
+		if (discount == null) {
 			throw new IllegalArgumentException("No discount given");
 		}
 		if (get(discount.getCode()) == null)
@@ -49,7 +52,7 @@ public class DiscountLocalRepository implements DiscountDbRepository{
 
 	@Override
 	public void update(Discount discount) {
-		if(discount == null){
+		if (discount == null) {
 			throw new IllegalArgumentException("No discount given");
 		}
 		if (get(discount.getCode()) == null)
@@ -59,9 +62,16 @@ public class DiscountLocalRepository implements DiscountDbRepository{
 
 	@Override
 	public void delete(String code) {
-		if(code == null){
+		if (code == null) {
 			throw new IllegalArgumentException("No code given");
 		}
 		discounts.remove(code);
+	}
+
+	public static DiscountDbRepository instance(Properties properties) {
+		if (repo == null) {
+			repo = new DiscountLocalRepository();
+		}
+		return repo;
 	}
 }

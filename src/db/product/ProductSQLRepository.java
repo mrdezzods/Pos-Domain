@@ -18,16 +18,16 @@ import domain.product.Product;
  * @author Milan Sanders, Wouter Dumoulin
  *
  */
-public class ProductSQLRepository extends SQLrepository implements
-		ProductDbRepository {
+public class ProductSQLRepository extends SQLrepository implements ProductDbRepository {
 
 	private static final String TABLE_NAME = "r0376333_r0296118.product";
 	private static final String NAME_FIELD = "name";
 	private static final String DESCRIPTION_FIELD = "description";
 	private static final String PRICE_FIELD = "price";
 	private static final String ID_FIELD = "id";
+	private static ProductDbRepository repo = null;
 
-	public ProductSQLRepository(Properties properties) {
+	private ProductSQLRepository(Properties properties) {
 		super(properties);
 	}
 
@@ -35,8 +35,7 @@ public class ProductSQLRepository extends SQLrepository implements
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
 		Product product = null;
-		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_FIELD
-				+ " = ?";
+		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_FIELD + " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, id);
@@ -66,8 +65,7 @@ public class ProductSQLRepository extends SQLrepository implements
 		List<Product> list = null;
 		try {
 			statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("SELECT * FROM "
-					+ TABLE_NAME);
+			ResultSet result = statement.executeQuery("SELECT * FROM " + TABLE_NAME);
 			list = new ArrayList<>();
 			while (result.next()) {
 				int id = result.getInt(ID_FIELD);
@@ -92,9 +90,8 @@ public class ProductSQLRepository extends SQLrepository implements
 	public void add(Product product) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "INSERT INTO " + TABLE_NAME + " (" + ID_FIELD + ", "
-				+ NAME_FIELD + ", " + DESCRIPTION_FIELD + ", " + PRICE_FIELD
-				+ ") VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO " + TABLE_NAME + " (" + ID_FIELD + ", " + NAME_FIELD + ", " + DESCRIPTION_FIELD + ", "
+				+ PRICE_FIELD + ") VALUES (?, ?, ?, ?)";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, product.getId());
@@ -117,9 +114,8 @@ public class ProductSQLRepository extends SQLrepository implements
 	public void update(Product product) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "UPDATE " + TABLE_NAME + " SET " + NAME_FIELD + " = ?, "
-				+ DESCRIPTION_FIELD + " = ?, " + PRICE_FIELD + " = ? WHERE "
-				+ ID_FIELD + " = ?";
+		String sql = "UPDATE " + TABLE_NAME + " SET " + NAME_FIELD + " = ?, " + DESCRIPTION_FIELD + " = ?, "
+				+ PRICE_FIELD + " = ? WHERE " + ID_FIELD + " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, product.getName());
@@ -142,8 +138,7 @@ public class ProductSQLRepository extends SQLrepository implements
 	public void delete(int id) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "DELETE FROM " + TABLE_NAME + " WHERE " + ID_FIELD
-				+ " = ?";
+		String sql = "DELETE FROM " + TABLE_NAME + " WHERE " + ID_FIELD + " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, id);
@@ -158,5 +153,12 @@ public class ProductSQLRepository extends SQLrepository implements
 				throw new DbException(e.getMessage(), e);
 			}
 		}
+	}
+
+	public static ProductDbRepository instance(Properties properties) {
+		if (repo == null) {
+			repo = new ProductSQLRepository(properties);
+		}
+		return repo;
 	}
 }

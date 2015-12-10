@@ -20,8 +20,7 @@ import domain.discount.DiscountType;
  * @author Milan Sanders
  *
  */
-public class DiscountSQLRepository extends SQLrepository implements
-		DiscountDbRepository {
+public class DiscountSQLRepository extends SQLrepository implements DiscountDbRepository {
 
 	private static final String TABLE_NAME = "r0376333_r0296118.discount";
 	private static final String CODE_FIELD = "code";
@@ -29,10 +28,11 @@ public class DiscountSQLRepository extends SQLrepository implements
 	private static final String THRESHOLD_FIELD = "threshold";
 	private static final String TYPE_FIELD = "type";
 	private static final String PRODUCT_ID_FIELD = "product_id";
+	private static DiscountDbRepository repo = null;
 
 	private DiscountFactory factory;
 
-	public DiscountSQLRepository(Properties properties) {
+	private DiscountSQLRepository(Properties properties) {
 		super(properties);
 		factory = new DiscountFactory();
 	}
@@ -41,21 +41,18 @@ public class DiscountSQLRepository extends SQLrepository implements
 	public Discount get(String code) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + CODE_FIELD
-				+ " = ?";
+		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + CODE_FIELD + " = ?";
 		Discount discount = null;
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, code);
 			ResultSet result = statement.executeQuery();
 			if (result.next()) {
-				DiscountType type = DiscountType.valueOf(result
-						.getString(TYPE_FIELD));
+				DiscountType type = DiscountType.valueOf(result.getString(TYPE_FIELD));
 				int amount = result.getInt(AMOUNT_FIELD);
 				Double threshold = result.getDouble(THRESHOLD_FIELD);
 				Integer productId = result.getInt(PRODUCT_ID_FIELD);
-				discount = factory.createDiscount(type, code, amount,
-						threshold, productId);
+				discount = factory.createDiscount(type, code, amount, threshold, productId);
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -77,18 +74,15 @@ public class DiscountSQLRepository extends SQLrepository implements
 		List<Discount> list = null;
 		try {
 			statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("SELECT * FROM "
-					+ TABLE_NAME);
+			ResultSet result = statement.executeQuery("SELECT * FROM " + TABLE_NAME);
 			list = new ArrayList<>();
 			while (result.next()) {
 				String code = result.getString(CODE_FIELD);
-				DiscountType type = DiscountType.valueOf(result
-						.getString(TYPE_FIELD));
+				DiscountType type = DiscountType.valueOf(result.getString(TYPE_FIELD));
 				int amount = result.getInt(AMOUNT_FIELD);
 				Double threshold = result.getDouble(THRESHOLD_FIELD);
 				Integer productId = result.getInt(PRODUCT_ID_FIELD);
-				list.add(factory.createDiscount(type, code, amount, threshold,
-						productId));
+				list.add(factory.createDiscount(type, code, amount, threshold, productId));
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -107,10 +101,8 @@ public class DiscountSQLRepository extends SQLrepository implements
 	public void add(Discount discount) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "INSERT INTO " + TABLE_NAME + " (" + TYPE_FIELD + " = ?, "
-				+ CODE_FIELD + " = ?, " + AMOUNT_FIELD + " = ?, "
-				+ THRESHOLD_FIELD + " = ?, " + PRODUCT_ID_FIELD + " = ?) "
-				+ "VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO " + TABLE_NAME + " (" + TYPE_FIELD + " = ?, " + CODE_FIELD + " = ?, " + AMOUNT_FIELD
+				+ " = ?, " + THRESHOLD_FIELD + " = ?, " + PRODUCT_ID_FIELD + " = ?) " + "VALUES (?, ?, ?, ?, ?)";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, discount.getType().toString());
@@ -135,9 +127,8 @@ public class DiscountSQLRepository extends SQLrepository implements
 	public void update(Discount discount) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "UPDATE " + TABLE_NAME + " SET " + TYPE_FIELD + " = ?, "
-				+ AMOUNT_FIELD + " = ?, " + THRESHOLD_FIELD + " = ?, "
-				+ PRODUCT_ID_FIELD + " = ? WHERE " + CODE_FIELD + " = ?";
+		String sql = "UPDATE " + TABLE_NAME + " SET " + TYPE_FIELD + " = ?, " + AMOUNT_FIELD + " = ?, "
+				+ THRESHOLD_FIELD + " = ?, " + PRODUCT_ID_FIELD + " = ? WHERE " + CODE_FIELD + " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, discount.getType().toString());
@@ -162,8 +153,7 @@ public class DiscountSQLRepository extends SQLrepository implements
 	public void delete(String code) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "DELETE FROM " + TABLE_NAME + " WHERE " + CODE_FIELD
-				+ " = ?";
+		String sql = "DELETE FROM " + TABLE_NAME + " WHERE " + CODE_FIELD + " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, code);
@@ -178,6 +168,13 @@ public class DiscountSQLRepository extends SQLrepository implements
 				throw new DbException(e.getMessage(), e);
 			}
 		}
+	}
+
+	public static DiscountDbRepository instance(Properties properties) {
+		if (repo == null) {
+			repo = new DiscountSQLRepository(properties);
+		}
+		return repo;
 	}
 
 }

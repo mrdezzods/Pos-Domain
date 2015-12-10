@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.sun.org.apache.regexp.internal.recompile;
+
 import db.SQLrepository;
 import domain.DbException;
 import domain.person.Person;
@@ -29,7 +31,9 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 	private static final String LASTNAME_FIELD = "lastname";
 	private static final String ROLE_FIELD = "role";
 
-	public PersonSQLRepository(Properties properties) {
+	private static PersonDbRepository repo = null;
+
+	private PersonSQLRepository(Properties properties) {
 		super(properties);
 	}
 
@@ -37,8 +41,7 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
 		Person person = null;
-		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + EMAIL_FIELD
-				+ " = ?";
+		String sql = "SELECT * FROM " + TABLE_NAME + " WHERE " + EMAIL_FIELD + " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, email);
@@ -49,8 +52,7 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 				String firstname = result.getString(FIRSTNAME_FIELD);
 				String lastname = result.getString(LASTNAME_FIELD);
 				Role role = Role.valueOf(result.getString(ROLE_FIELD));
-				person = new Person(email, password, salt, firstname, lastname,
-						role);
+				person = new Person(email, password, salt, firstname, lastname, role);
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -71,8 +73,7 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 		List<Person> list = null;
 		try {
 			statement = connection.createStatement();
-			ResultSet result = statement.executeQuery(
-					"SELECT * FROM " + TABLE_NAME);
+			ResultSet result = statement.executeQuery("SELECT * FROM " + TABLE_NAME);
 			list = new ArrayList<>();
 			while (result.next()) {
 				String email = result.getString(EMAIL_FIELD);
@@ -81,8 +82,7 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 				String firstname = result.getString(FIRSTNAME_FIELD);
 				String lastname = result.getString(LASTNAME_FIELD);
 				Role role = Role.valueOf(result.getString(ROLE_FIELD));
-				list.add(new Person(email, password, salt, firstname, lastname,
-						role));
+				list.add(new Person(email, password, salt, firstname, lastname, role));
 			}
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage(), e);
@@ -100,10 +100,8 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 	public void add(Person person) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "INSERT INTO " + TABLE_NAME + " (" + EMAIL_FIELD
-				+ ", " + PASSWORD_FIELD + ", " + SALT_FIELD + ", "
-				+ FIRSTNAME_FIELD + ", " + LASTNAME_FIELD + ", "
-				+ ROLE_FIELD + ") " + "VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO " + TABLE_NAME + " (" + EMAIL_FIELD + ", " + PASSWORD_FIELD + ", " + SALT_FIELD + ", "
+				+ FIRSTNAME_FIELD + ", " + LASTNAME_FIELD + ", " + ROLE_FIELD + ") " + "VALUES (?, ?, ?, ?, ?, ?)";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, person.getUserId());
@@ -128,10 +126,9 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 	public void update(Person person) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "UPDATE " + TABLE_NAME + " SET " + PASSWORD_FIELD
-				+ " = ?, " + SALT_FIELD + " = ?, " + FIRSTNAME_FIELD
-				+ " = ?, " + LASTNAME_FIELD + " = ?, " + ROLE_FIELD
-				+ " = ? WHERE " + EMAIL_FIELD + " = ?";
+		String sql = "UPDATE " + TABLE_NAME + " SET " + PASSWORD_FIELD + " = ?, " + SALT_FIELD + " = ?, "
+				+ FIRSTNAME_FIELD + " = ?, " + LASTNAME_FIELD + " = ?, " + ROLE_FIELD + " = ? WHERE " + EMAIL_FIELD
+				+ " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, person.getHashedPassword());
@@ -156,8 +153,7 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 	public void delete(String email) {
 		Connection connection = createConnection();
 		PreparedStatement statement = null;
-		String sql = "DELETE FROM " + TABLE_NAME + " WHERE " + EMAIL_FIELD
-				+ " = ?";
+		String sql = "DELETE FROM " + TABLE_NAME + " WHERE " + EMAIL_FIELD + " = ?";
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, email);
@@ -172,5 +168,12 @@ public class PersonSQLRepository extends SQLrepository implements PersonDbReposi
 				throw new DbException(e.getMessage(), e);
 			}
 		}
+	}
+
+	public static PersonDbRepository instance(Properties properties) {
+		if (repo == null) {
+			repo = new PersonSQLRepository(properties);
+		}
+		return repo;
 	}
 }
